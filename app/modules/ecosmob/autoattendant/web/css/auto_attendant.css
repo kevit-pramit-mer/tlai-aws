@@ -1,0 +1,150 @@
+.customCheck {
+    width: 20px;
+    height: 20px;
+    border-color: #087380;;
+    color: #087380;
+    position: relative;
+    padding-left: 1em;
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+
+.border-domain {
+    border: 0.2px solid #087380;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.custom-width {
+    width: 155px;
+}
+
+.btn_div {
+    margin-top: 107px;
+    padding-left: 3px;
+    left: 50px;
+}
+
+@media only screen and (max-width: 575px) {
+    .btn_div {
+        margin-left: 25%;
+        margin-top: 12%;
+        margin-bottom: 11%;
+        left: 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .btn_grp {
+        margin-left: 42%;
+        padding-bottom: 5%;
+    }
+}
+
+/*
+.content-switch .switch-button {
+    margin-top: 20px;
+    margin-left: -25px;
+}
+
+.custom-switch-span {
+    width: 80px;
+    height: 35px;
+}
+
+.content-switch .switch-button .switch-label-button {
+    height: 35px;
+}
+
+.content-switch .switch-slide-button .switch-label-button:before {
+    background: #087380;
+    !*color: #FFF;*!
+}
+
+.content-switch .switch-slide-button .switch-label-button:after {
+    background: #4CAF50;
+    !*color: #fff;*!
+}*/
+
+/*.switch-same {
+    margin-left: 55px;
+}
+.content-switch .switch-button .switch-label-button {
+    font-size: 1em;
+}*/
+.tag-margin {
+    margin-left: -118px;
+}
+
+.tag-margin-bundle {
+    margin-left: -114px;
+    width: 100px;
+    padding: 3px;
+}
+
+.did-count {
+    margin-top: 10px;
+}
+
+.myswitch {
+    margin-top: 0px !important;
+    margin-left: 10px !important;
+}
+
+.switch-height {
+    height: 30px;
+}
+
+.custom-tag {
+    font-size: 1em;
+    margin-top: 4px;
+}
+
+.digit-height {
+    height: 56px;
+    margin-left: -15px;
+    width: 45px;
+}
+
+.digit-padding {
+    /*padding-bottom: 11px;*/
+}
+
+.jstree-anchor {
+    color: #333333 !important;
+}
+
+#basicTree {
+    overflow: auto;
+}
+
+.row .col.s3 {
+    width: 31%;
+}
+
+.row .col {
+    padding: 0 10px;
+}
+
+tr {
+    border-bottom: unset;
+}
+
+td {
+    padding: unset;
+    border-bottom: 1px dotted rgba(0, 0, 0, .42);
+}
+
+td input[type="text"] {
+    padding: 0;
+    margin: 0;
+}
+
+.sortable-list > ul:not(.browser-default) > li {
+    list-style-type: none;
+    border-bottom: 1px dotted rgba(0, 0, 0, .42);
+    height:55px;
+}
+.margin-top-15  input[type=text]:not(.browser-default):disabled {
+    border: none !important;
+}

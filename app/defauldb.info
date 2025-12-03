@@ -1,0 +1,9 @@
+Mysql_Username: my_U
+Mysql_password: my_p
+Mysql_DB_name: my_db
+Mongo_Username: mongo_u
+Mongo_password: mongo_p
+Mongo_DB_name: mongo_db
+Tenant_uuid: t_uid
+Domain: domain
+***************************Info Added Successfully***********************

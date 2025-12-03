@@ -1,0 +1,25 @@
+services:
+  nginx:
+    image: nginx
+    restart: always
+    hostname: nginx
+    container_name: nginx
+    ports:
+      - "3002:3002"
+      - "3006:3006"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      # keep the full tree (optional but useful for renewals and debugging)
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./www/certbot:/var/www/certbot
+      # map host LE certs to the paths your config expects:
+      # - /etc/letsencrypt/live/teleaon.ai/fullchain.pem:/opt/fullchain.pem:ro
+      # - /etc/letsencrypt/live/teleaon.ai/privkey.pem:/opt/privkey.pem:ro
+    networks:
+      - uc-connection
+
+networks:
+  uc-connection:
+    name: uc-connection
+    external: true
+

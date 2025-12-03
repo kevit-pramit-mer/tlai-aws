@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'cancel' => 'Cancel',
+    'search' => 'Search',
+    'reset' => 'Reset',
+    'dial_number' => 'Dial Number',
+    'call_disposion_name' => 'Disposition',
+    'call_disposion_decription' => 'Disposition Description',
+    'agent_name' => 'Agent Name',
+    'campaign_name' => 'Campaign Name',
+    'call_disposion_start_time' => 'Call Disposition Time',
+    'start_time' => 'Call Start Time',
+    'export' => 'Export',
+    'clt_history' => 'Client History',
+    'from' => 'From',
+    'to' => 'To',
+    'select_campaign' => 'Select Campaign',
+    'campaign' => 'Campaign',
+    'no_records_found_to_export' => 'No records found to export',
+    'customer_first_name' => 'Customer First Name',
+    'customer_last_name' => 'Customer Last Name',
+    'agent_first_name' => 'Agent First Name',
+    'agent_last_name' => 'Agent Last Name',
+    'from_date' => 'From Date',
+    'to_date' => 'To Date',
+    'disposition_comment' => 'Disposition Comment',
+];

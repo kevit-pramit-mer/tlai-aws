@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'update'                => 'Update',
+    'create'                => 'Create',
+    'apply'                 => 'Apply',
+    'cancel'                => 'Cancel',
+    'search'                => 'Search',
+    'reset'                => 'Reset',
+    'created_success'       => 'Created Successfully',
+    'updated_success'       => 'Updated Successfully',
+    'applied_success'       => 'Applied Successfully',
+    'deleted_success'       => 'Deleted Successfully',
+    'page_not_exits'        => 'The requested page does not exist.',
+    'create_lead_grp'       => 'Create Lead group ',
+    'update_lead_grp'       => 'Update Lead group ',
+    'lead_grp'              => 'Lead group ',
+    're_dial_calls'         => 'Redial Call',
+    'select_lead_group'     =>'Select Lead Group',
+    'select_disposition_list' =>'Select Disposition List',
+    'Preview Campaign Count' =>'Preview Campaign Count : ',
+    'Progressive Campaign Count' =>'Progressive Campaign Count : ',
+    'Blended Campaign Count' =>'Blended Campaign Count : ',
+    'select_campaign' =>'Select Campaign',
+];

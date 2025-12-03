@@ -1,0 +1,11 @@
+* * * * * chown -R www-data:www-data /usr/share/nginx/html/uctenant/ >> /var/log/cron/cron.log 2>&1
+0 1 * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii system-info/pcap-file-delete >> /var/log/cron/cron.log 2>&1
+* * * * * chmod -R 777 /media/ >> /var/log/cron/cron.log 2>&1
+* * * * * chmod -R 777 /usr/share/nginx/html/uctenant/web/media/ >> /var/log/cron/cron.log 2>&1
+* * * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii system-info/index >> /var/log/cron/cron.log 2>&1
+0 1 * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii system-info/cleanup >> /var/log/cron/cron.log 2>&1
+* * * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii dynamic-db-migration/index  >> /var/log/cron.log 2>&1
+*/30 * * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii extension-trago/update-trago-status  >> /var/log/cron.log 2>&1
+* * * * * /usr/bin/php8.2 /usr/share/nginx/html/uctenant/yii cron/idle-logout  >> /var/log/cron.log 2>&1
+* * * * * /bin/bash /usr/share/nginx/html/uctenant/new_tenant_gen.sh >> /var/log/cron.log 2>&1
+* * * * * /bin/bash /usr/share/nginx/html/uctenant/new_tenant_del.sh >> /var/log/cron.log 2>&1

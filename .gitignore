@@ -1,0 +1,43 @@
+# PHPStorm
+.idea/
+
+# dotenv
+.env
+.env.backup
+
+# Logs
+app/runtime/*
+app/web/assets/*.js
+app/web/assets/*.css
+
+# IDE-specific files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# OS generated files
+app/.directory
+
+# Docker
+app/docker/.env
+
+# Custom
+app/web/temp
+app/web/temp
+app/web/upload
+app/web/backup
+app/web/export
+app/web/import
+app/web/cache
+app/web/debug
+app/web/logs
+app/web/runtime
+app/web/assets/*
+/web/assets/.gitkeep
+
+# Custom after TLAI-Local
+TLAI-freeswitch-uc-freeswitch/sounds/*
+mongo/*
+mysql/*
+pma/*
+rabbitmq/*

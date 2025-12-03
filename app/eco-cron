@@ -1,0 +1,10 @@
+* * * * * chown -R www-data:www-data /usr/share/nginx/html/uctenant/ >> /var/log/cron/cron.log 2>&1
+0 1 * * * /usr/bin/php7.3 /usr/share/nginx/html/uctenant/yii system-info/pcap-file-delete >> /var/log/cron/cron.log 2>&1
+* * * * * chmod -R 755 /media/ >> /var/log/cron/cron.log 2>&1
+* * * * * chmod -R 755 /usr/share/nginx/html/uctenant/web/media/ >> /var/log/cron/cron.log 2>&1
+* * * * * /usr/bin/php7.3 /usr/share/nginx/html/uctenant/yii system-info/index >> /var/log/cron/cron.log 2>&1
+0 1 * * * /usr/bin/php7.3 /usr/share/nginx/html/uctenant/yii system-info/cleanup >> /var/log/cron/cron.log 2>&1
+* * * * * /usr/bin/php7.3 /usr/share/nginx/html/uctenant/yii dynamic-db-migration/index  >> /var/log/cron/cron.log 2>&1
+* * * * * /bin/bash /usr/share/nginx/html/uctenant/new_tenant_gen.sh >> /var/log/cron/cron.log 2>&1
+* * * * * /bin/bash /usr/share/nginx/html/uctenant/new_tenant_del.sh >> /var/log/cron/cron.log 2>&1
+

@@ -1,0 +1,54 @@
+server {
+    listen 80;
+    server_name teleaon.ai;
+    return 301 https://teleaon.ai$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name teleaon.ai;
+
+    ssl_certificate     /opt/teleaon.ai.fullchain.pem;
+    ssl_certificate_key /opt/teleaon.ai.privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    root  /usr/share/nginx/html/uctenant/web/;
+    index index.html index.php index.htm;
+    add_header X-Frame-Options sameorigin always;
+
+    # ---- API to Node on host port 3001 ----
+    location ^~ /api/ {
+        proxy_pass http://127.0.0.1:3001;   # keep /api/... intact
+        proxy_http_version 1.1;
+        proxy_set_header Host                $host;
+        proxy_set_header X-Real-IP           $remote_addr;
+        proxy_set_header X-Forwarded-For     $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto   $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+    }
+
+    # ---- WebSockets (Socket.IO, etc.) ----
+    location /socket.io/ {
+        proxy_pass http://127.0.0.1:3001/socket.io/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade    $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host       $host;
+        proxy_set_header X-Real-IP  $remote_addr;
+    }
+
+    # ---- Static / PHP ----
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        client_max_body_size 500M;
+        fastcgi_read_timeout 240;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+}
+

@@ -1,0 +1,28 @@
+<?php
+
+use app\modules\ecosmob\fax\FaxModule;
+
+/* @var $this yii\web\View */
+/* @var $model app\modules\ecosmob\fax\models\Fax */
+
+$this->title = FaxModule::t('fax', 'update_fax') . $model->fax_name;
+$this->params['breadcrumbs'][] = ['label' => FaxModule::t('fax', 'fax'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = FaxModule::t('fax', 'update');
+$this->params['pageHead'] = $this->title;
+?>
+
+<div class="col-md-12 profile-contain">
+    <div class="row">
+        <div class="col-xl-9 col-md-7 col-xs-12">
+            <div class="content">
+                <div class="fax-update">
+
+                    <?= $this->render('_form', [
+                        'model' => $model,
+                    ]) ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

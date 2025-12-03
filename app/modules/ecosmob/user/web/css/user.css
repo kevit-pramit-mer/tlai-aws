@@ -1,0 +1,9 @@
+.password-options{
+    top: 10px;
+}
+#ui-datepicker-div{
+    z-index: 2 !important;
+}
+#hov {
+    margin-right: 8px;
+}

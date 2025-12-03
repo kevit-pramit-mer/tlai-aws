@@ -1,0 +1,9 @@
+.select-wrapper input.select-dropdown {
+    display: block !important;
+    /*color: #E24E42 !important;*/
+    font-size: 17px;
+}
+
+.datepicker-controls .select-month input {
+    width: 92px;
+}

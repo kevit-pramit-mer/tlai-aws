@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+   web:
+     image: dockerregistry.ecosmob.net:5000/ecouc-tcl-fscurl:v3
+     restart: always
+     container_name: fs_curl
+     ports:
+       - "81:81"
+     volumes:
+       - ./data/nginx_conf/conf.d:/etc/nginx/conf.d
+       - ./global_defines.php:/usr/share/nginx/html/fs_curl/global_defines.php
+
+

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'id'              => 'ID',
+    'create'          => 'Crear captura de paquetes',
+    'cancel'          => 'Cancelar',
+    'update'          => 'Actualizar',
+    'apply'           => 'Aplicar',
+    'start'           => 'Hora de inicio',
+    'stop'            => 'Hora de detener',
+    'filename'        => 'Nombre del archivo',
+    'url'             => 'URL',
+    'action'             => 'Acción',
+    'pcap_management' => 'Gestión de PCap',
+    'add_new'         => 'Agregar nuevo',
+    'created_date'    => 'Fecha de creación',
+    'created_success' => 'Creado con éxito',
+    'deleted_success' => 'Eliminado con éxito',
+    'start_capture'   => 'Iniciar',
+    'stop_capture'    => 'Detener',
+    'no_result_found' => 'No se han encontrado resultados',
+    'ct_name' => 'Nombre de captura',
+    'filter' => 'Filtrado por',
+    'buffer_size' => 'Tamaño del búfer (MB)',
+    'packets_limit' => 'Límite (paquetes)',
+    'ct_name_alphanumeric_validation'=> 'El nombre de la captura contiene solo valor alfanumérico',
+];

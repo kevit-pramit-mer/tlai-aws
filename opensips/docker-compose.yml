@@ -1,0 +1,26 @@
+version: '3.0'
+services:
+  opensips:
+    restart: always
+    image: opensips-megh:latest
+    network_mode: "host"
+    container_name: opensips-megh
+    volumes:
+      # TLS certs from Let's Encrypt
+      - /etc/letsencrypt/live/teleaon.ai/cert.pem:/usr/local/etc/opensips/cert/cert.pem:ro
+      - /etc/letsencrypt/live/teleaon.ai/fullchain.pem:/usr/local/etc/opensips/cert/fullchain.pem:ro
+      - /etc/letsencrypt/live/teleaon.ai/privkey.pem:/usr/local/etc/opensips/cert/privkey.pem:ro
+
+      # OpenSIPS config
+      - ./opensips.cfg:/usr/local/etc/opensips/opensips.cfg:ro
+
+      # Fix for "could not get TCP protocol number"
+      - /etc/protocols:/etc/protocols:ro
+      - /etc/services:/etc/services:ro
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
+

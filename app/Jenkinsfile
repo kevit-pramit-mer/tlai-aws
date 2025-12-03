@@ -1,0 +1,140 @@
+#!groovy
+node {
+
+if (env.BRANCH_NAME == 'master')
+{
+
+def dockerRegistry='dockerregistry.ecosmob.net:5000'
+
+
+          stage ('Checkout'){
+                   checkout scm
+
+
+        GIT_COMMIT_EMAIL = sh (
+        script: 'git --no-pager show -s --format=\'%ae\'',
+        returnStdout: true
+        ).trim()
+
+        GIT_COMMIT_ID = sh (
+        script: 'git --no-pager show -s | grep commit',
+        returnStdout: true
+        ).trim()
+
+
+          }
+
+
+          stage('SonarQube analysis') {
+                    // requires SonarQube Scanner 2.8+ test1
+                    def scannerHome = tool 'Sonar-Scanner';
+                    withSonarQubeEnv('SonarQube') {
+                    def projectKey1=env.JOB_NAME.replaceAll('/','.')
+                    def projectKey=projectKey1.replaceAll('%2','.')
+                    sh "${scannerHome}/bin/sonar-scanner -D sonar.projectKey=${projectKey}  -D sonar.sources=. -D sonar.exclusions=config/**,/docker/**,docs/**,mail/**,messages/**,runtime/**,tests/**,vagrant/**,vendor/**,widgets/**,web/**"
+                    stash includes: ".scannerwork/report-task.txt", name: 'sonar'
+                    }
+          }
+
+
+
+
+
+  withCredentials( [usernamePassword( credentialsId: 'ecouctcl', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+{
+  def remote = [:]
+  remote.name = 'ecouctcl'
+  remote.host = "95.216.154.52"
+  remote.port = 52222
+  remote.user = "${USERNAME}"
+  remote.password = "${PASSWORD}"
+  remote.allowAnyHosts = true
+
+
+    stage ('Build and Push the Image')
+    {
+      withDockerRegistry(credentialsId: 'dockerregistry', url: 'https://dockerregistry.ecosmob.net:5000') {
+      def image1 = docker.build("${dockerRegistry}/ecouc-portal-stag:v${env.BUILD_ID}", "--file docker/Dockerfile .")
+      image1.push()
+    }
+    }
+
+     stage('Pull and Deploy Image on Dev Server')
+    {
+      sshCommand remote: remote, command: "docker pull ${dockerRegistry}/ecouc-portal-stag:v${env.BUILD_ID}; docker images"
+      sshCommand remote: remote, command: "docker-compose -f ${webPath_dev}docker-compose.yml down"
+      sshCommand remote: remote, command: "cp ${webPath_dev}docker-compose.yml ${webPath_dev}docker-compose-old.yml"
+     }
+
+      stage ('Moving the docker-compose to the server to Dev')
+    {
+    sshPut remote: remote, from: './docker/docker-compose.yml', into: "${webPath_dev}docker-compose.yml"
+    }
+
+     stage('Start the docker-compose Dev Server')
+    {
+      previous = sshCommand remote: remote, command: "cat ${webPath_dev}docker-compose.yml | grep -o ':v.*' | sed 's/://g' ", returnStdout: true
+      sshCommand remote: remote, command: "sed -i 's/${previous}/v${env.BUILD_ID}/g' ${webPath_dev}docker-compose.yml"
+      sshCommand remote: remote, command: "docker-compose -f ${webPath_dev}docker-compose.yml up -d ; docker ps"
+     }
+     }
+
+    }
+//if master closer
+
+if (env.BRANCH_NAME == 'release/megh_communication')
+{
+
+def dockerRegistry='dockerregistry.ecosmob.net:5000'
+
+
+          stage ('Checkout'){
+                   checkout scm
+
+
+        GIT_COMMIT_EMAIL = sh (
+        script: 'git --no-pager show -s --format=\'%ae\'',
+        returnStdout: true
+        ).trim()
+
+        GIT_COMMIT_ID = sh (
+        script: 'git --no-pager show -s | grep commit',
+        returnStdout: true
+        ).trim()
+
+
+          }
+
+
+          stage('SonarQube analysis') {
+                    // requires SonarQube Scanner 2.8+ test1
+                    def scannerHome = tool 'Sonar-Scanner';
+                    withSonarQubeEnv('SonarQube') {
+                    def projectKey1=env.JOB_NAME.replaceAll('/','.')
+                    def projectKey=projectKey1.replaceAll('%2','.')
+                    sh "${scannerHome}/bin/sonar-scanner -D sonar.projectKey=${projectKey}  -D sonar.sources=. -D sonar.exclusions=config/**,/docker/**,docs/**,mail/**,messages/**,runtime/**,tests/**,vagrant/**,vendor/**,widgets/**,web/**"
+                    stash includes: ".scannerwork/report-task.txt", name: 'sonar'
+                    }
+          }
+stage ('Build and Push the Image')
+    {
+      withDockerRegistry(credentialsId: 'dockerregistry', url: 'https://dockerregistry.ecosmob.net:5000') {
+      def image1 = docker.build("${dockerRegistry}/meghuc-pbx:v${env.BUILD_ID}", "--file docker/Dockerfile .")
+      image1.push()
+    }
+    }
+    }
+
+    }    // Node close
+
+def Properties getProperties(filename) {
+def properties = new Properties()
+properties.load(new StringReader(readFile(filename)))
+return properties
+}
+
+@NonCPS
+def jsonParse(def json) {
+    new groovy.json.JsonSlurperClassic().parseText(json)
+}
+

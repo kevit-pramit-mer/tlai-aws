@@ -1,0 +1,52 @@
+services:
+  freeswitch:
+    hostname: freeswitch-3
+    container_name: freeswitch3
+    network_mode: "host"
+    restart: always
+    image: dockerregistry.ecosmob.net:5000/ecouc-freeswitch:release.1
+    privileged: true
+    ulimits:
+      core: -1
+    logging:
+      options:
+        max-size: 20m
+    volumes:
+      - ./freeswitch_files/scripts/config.lua:/usr/local/freeswitch/scripts/config.lua
+      - /home/ecosmob/docker/portal_fs/freeswitch_files/vars.xml:/usr/local/freeswitch/conf/vars.xml
+      - /home/ecosmob/docker/portal_fs/freeswitch_files/es:/usr/local/freeswitch/sounds/es
+      - ./wss:/opt/
+      - ./freeswitch_files/odbc.ini:/etc/odbc.ini
+      - fs_media:/usr/local/freeswitch/recordings
+      - voicemail:/media/voicemail
+      - fslog:/usr/local/freeswitch/log
+      - audio-libraries:/media/admin/audio-libraries
+      - fax:/media/admin/fax
+
+  web:
+    image: dockerregistry.ecosmob.net:5000/ecouc-portal-stag:v7
+    restart: always
+    network_mode: "host"
+    container_name: tenant_portal
+    privileged: true
+    volumes:
+      - ./portal_files/params.php:/usr/share/nginx/html/uctenant/config/params.php
+      - ./portal_files/sudoers:/etc/sudoers
+      - ./portal_files/nginx_conf/conf.d:/etc/nginx/conf.d
+      - ./portal_files/new_tenant_del.sh:/usr/share/nginx/html/uctenant/new_tenant_del.sh
+      - ./portal_files/new_tenant_gen.sh:/usr/share/nginx/html/uctenant/new_tenant_gen.sh
+      - ./cert/privkey.pem:/opt/privkey.pem
+      - ./cert/fullchain.pem:/opt/fullchain.pem
+      - fs_media:/usr/share/nginx/html/uctenant/web/media/recordings
+      - voicemail:/usr/share/nginx/html/uctenant/web/media/voicemail
+      - fslog:/var/log/fslog
+      - audio-libraries:/usr/share/nginx/html/uctenant/web/media/audio-libraries
+      - pcap:/usr/share/nginx/html/uctenant/web/media/pcap
+
+volumes:
+  fs_media:
+  voicemail:
+  fslog:
+  audio-libraries:
+  pcap:
+  fax:

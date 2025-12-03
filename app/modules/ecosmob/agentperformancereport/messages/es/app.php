@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'from_date' => 'Partir de la fecha',
+    'to_date' => 'Hasta la fecha',
+    'campaign' => 'Campaña',
+    'prompt_camp' => 'Seleccionar campaña',
+    'total_call' => 'Llamadas totales',
+    'prompt_agent_name' => 'Seleccione el nombre del agente',
+    'agent' => 'Agente',
+    'agent_performance_report' => 'Informe de rendimiento del agente',
+    'queue' => 'Cola',
+    'prompt_queue' => 'Seleccionar cola',
+    'answered' => 'Llamadas totales',
+    'abandoned' => 'llamadas abandonadas',
+    'call_duration' => 'Duración promedio de la llamada',
+    'break_time' => 'Tiempo total de descanso',
+    'avg_break_time' => 'Tiempo medio de descanso',
+    'avg_call_duration' => 'Duración promedio de la llamada',
+    'wait_time' => 'tiempo total de espera',
+    'avg_wait_time' => 'tiempo promedio de espera',
+    'disposion_time' => 'Tiempo total en disposición',
+    'avg_disposion_time' => 'Tiempo promedio en disposición',
+    'agent_name' => 'Nombre del agente',
+];

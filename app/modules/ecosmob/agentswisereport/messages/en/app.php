@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'action'          => 'Action',
+    'cancel'          => 'Cancel',
+    'search'          => 'Search',
+    'reset'           => 'Reset',
+    'agentsreport'=>'Agents Wise Report',
+
+    'date'            => 'Date',
+    'total_call'      => 'Total Calls',
+    'answered'        => 'Answered',
+    'abandoned'       => 'Abandoned',
+    'call_duration'   => 'Call Duration',
+    'camp_name'       => 'Campaign Name',
+    'campaign_name'       => 'Campaign Name',
+    'ans_time'        => 'Answer Time',
+    'report'          => 'Campaign Reports',
+    'prompt_camp'     => 'Select Campaign',
+    'export'          => 'Export',
+    'call_status'          => 'Call Status',
+
+    'from'            => 'From',
+    'to'              => 'To',
+    'select_campaign'=>'Select Campaign',
+    'campaign'=>'Campaign',
+    'select_agent_name'=>'Select Agent Name',
+    'agent_name'=>'Agent Name',
+
+    'caller_id_num'=>'Caller Id',
+    'dial_number'=>'Callee Id',
+    'agent_duration'=>'Agent Duration',
+    'start_time'=>'Start Time',
+    'end_time'=>'End Time',
+    'call_disposion_name'=>'Call Disposition Name',
+    'no_records_founds_to_export' => 'No records found to export',
+    'hangup' => 'Hang-up Cause',
+    'disposition_comment' => 'Disposition Comment',
+    'wrap_up_time' => 'Wrap-up Time',
+    'cmp_type' => 'Campaign Type',
+];

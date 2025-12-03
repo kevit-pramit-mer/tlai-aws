@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'from_date' => 'From Date',
+    'to_date' => 'To Date',
+    'campaign' => 'Campaign',
+    'prompt_camp' => 'Select Campaign',
+    'total_call' => 'Total Calls',
+    'prompt_agent_name' => 'Select Agent Name',
+    'agent' => 'Agent',
+    'agent_performance_report' => 'Agent Performance Report',
+    'queue' => 'Queue',
+    'prompt_queue' => 'Select Queue',
+    'hour' => 'Hour (00:00 to 24:00)',
+    'answered' => 'Answered Calls',
+    'abandoned' => 'Abandoned Calls',
+    'call_duration' => 'Total Call Duration',
+    'break_time' => 'Total Break Time',
+    'avg_break_time' => 'Average Break Time',
+    'avg_call_duration' => 'Average Call Duration',
+    'wait_time' => 'Total Wait Time',
+    'avg_wait_time' => 'Average Wait Time',
+    'disposion_time' => 'Total Time In Disposition',
+    'avg_disposion_time' => 'Average Time In Disposition',
+    'agent_name' => 'Agent Name',
+];

@@ -1,0 +1,56 @@
+.customCheck {
+    width: 20px;
+    height: 20px;
+    border-color: #087380;;
+    color: #087380;
+    position: relative;
+    padding-left: 1em;
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+
+.border-domain {
+    border: 0.2px solid #087380;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.custom-width {
+    width: 155px;
+}
+
+.btn_div {
+    margin-top: 50px;
+    padding-left: 3px;
+}
+
+@media only screen and (max-width: 575px) {
+    .btn_div {
+        margin-left: 25%;
+        margin-top: 12%;
+        margin-bottom: 11%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .btn_grp {
+        margin-left: 42%;
+        padding-bottom: 5%;
+    }
+}
+
+.border-trunk {
+    border: 0.5px solid transparent;
+    padding: 14px;
+    padding-bottom: 10px;
+}
+
+span.badge{
+    float: left;
+}
+.agent-heading{
+    display: flex;
+}
+.agent-title{
+    margin: 4px;
+}

@@ -1,0 +1,778 @@
+(function () {
+    /*  function myDateSTring(){
+          return util.printd("yyyymmdd_HHMMss", new Date());
+      }*/
+    var vertoHandle, vertoCallbacks, currentCall, currentCallNew;
+    var current_uuid = '';
+    var timer = new Timer();
+    var currentCallTime;
+    var is_call_active = false;
+    var is_stop_playback = false;
+    var is_m_call = false; //18-1-2020
+    var is_disp_submit = true; //20-1-2020
+	
+    // put your code here!
+    $.verto.init({}, bootstrap);
+    var date = new Date();
+
+    function bootstrap(status) {
+        var loginHost = 'calltech.ecosmob.net';
+        vertoHandle = new jQuery.verto({
+            login: extensionNumber + '@' + loginHost,
+            passwd: extensionPassword,
+            socketUrl: 'wss://' + '@' + loginHost + ':8088',
+            //ringFile: 'https://' + loginHost + '/web/theme/sound/bell_ring2.mp3',
+	    ringFile: 'https://' + loginHost + '/web/theme/sound/bell_ring2.mp3',
+            //ringFile: 'https://calltech.ecosmob.net/web/theme/sounds/test.wav',verto_h_cc_queue
+            // ringFile: ringFile,
+            //iceServers: [
+            //  {
+            //    url: 'stun:stun.l.google.com:19302',
+            //},
+            //],
+
+            /*    iceServers: [{
+           urls: [
+               "turn:global.turn.twilio.com:3478?transport=udp",
+               "turn:global.turn.twilio.com:3478?transport=tcp",
+               "turn:global.turn.twilio.com:443?transport=tcp",
+           ],
+           username: "689fd83dba4f541399f53af072ca63e449e7b28c03de591ada43b490f9f5cfe1",
+           credential: "WgMgzG9aw9m2xYc0K/EBN5d3ql8FY0OVmefV0jIX7Rk="
+       },
+           {
+               urls: [
+                   "stun:stun.l.google.com:19302",
+                   "stun:stun.l.google.com:19302?transport=udp"
+               ]
+           }
+       ],*/
+
+            iceServers: [
+                {
+                    urls: [
+                        "turn:global.turn.twilio.com:3478?transport=udp",
+                        "turn:global.turn.twilio.com:3478?transport=tcp",
+                        "turn:global.turn.twilio.com:443?transport=tcp",
+                    ],
+                    username: "689fd83dba4f541399f53af072ca63e449e7b28c03de591ada43b490f9f5cfe1",
+                    credential: "WgMgzG9aw9m2xYc0K/EBN5d3ql8FY0OVmefV0jIX7Rk="
+                },
+                {
+                    urls: [
+                        "stun:stun.l.google.com:19302",
+                        "stun:stun.l.google.com:19302?transport=udp"
+                    ]
+                }
+            ],
+
+            tag: "audio-container",
+            deviceParams: {
+                useMic: 'any',
+                useSpeak: 'any',
+                useCamera: 'none',
+            },
+
+        }, vertoCallbacks);
+        /* document.getElementById("answer-call").addEventListener("click", answerCall);*/
+        /*document.getElementById("hang-up-call").addEventListener("click", hangupCall);*/
+        /*document.getElementById("hold-call").addEventListener("click", holdCall);
+        document.getElementById("unhold-call").addEventListener("click", unholdCall);
+        document.getElementById("mute-call").addEventListener("click", muteCall);
+        document.getElementById("unmute-call").addEventListener("click", unmuteCall);*/
+    }
+
+    vertoCallbacks = {
+        onWSLogin: onWSLogin,
+        onWSClose: onWSClose,
+        onDialogState: onDialogState,
+        onMessage: onMessage,
+    };
+
+    function onWSLogin(verto, success) {
+        console.log('onWSLogin', success);
+    }
+
+    function onWSClose(verto, success) {
+        console.log('onWSClose', success);
+    }
+
+    timer.addEventListener('secondsUpdated', function () {
+        currentCallTime = timer.getTimeValues().toString();
+	//console.log(" currentCallTime: " + currentCallTime);
+        $('.call-timer').html(currentCallTime);
+    });
+
+    function callHangupBtn() {
+        $('#hold-call').attr('src', urlDisableUnHold);
+        $('#hold-call').attr('title', titleUnhold);
+        $('#mute-call').attr('src', urlUmute);
+        $('#mute-call').attr('title', titleUnmute);
+        $('#transfer-call').attr('src', urlDisableTransfercall);
+        $('#hang-up-call').attr('src', urlDisableHangup);
+    }
+
+    function makeCall() {
+        var lg_contact_number = $('#lg_contact_number').val();
+        var lg_id = $('#lg_id').val();
+        var caller_id_name = cmp_caller_name;
+        var caller_id_number = extensionNumber;
+        var recording_file = '/usr/local/freeswitch/recordings/' + new Date().getTime() + '_' + lg_contact_number + '_' + extensionNumber + '.mp3';
+
+
+        //console.log('Recording_file : ', recording_file);
+        console.log('Lead Id : ', lg_id);
+        console.log('Campaign : ', campaign_id);
+        console.log('Selected Extension : ', extensionNumber);
+        console.log('caller_id_number : ', caller_id_number);
+        console.log('cmp_caller_id : ', cmp_caller_id);
+
+        var outgoingBandwidth = 'default';
+        var incomingBandwidth = 'default';
+        if (!lg_contact_number) {
+            lg_contact_number = 0;
+        }
+
+        console.log(lg_contact_number);
+        currentCall = vertoHandle.newCall({
+            // Extension to dial.
+            destination_number: lg_contact_number,
+            caller_id_name: caller_id_name,
+            caller_id_number: caller_id_number,
+            outgoingBandwidth: outgoingBandwidth,
+            incomingBandwidth: incomingBandwidth,
+            useStereo: true,
+            useVideo: false,
+            userVariables: {
+                agent_id: agent_id,
+                lead_id: lg_id,
+                campaign_id: campaign_id,
+                cmp_caller_id: cmp_caller_id,
+                recording_file: recording_file,
+            },
+            dedEnc: false,
+        });
+    };
+
+    function makeCallDialPad() {
+        var lg_contact_number = $("#output").text();
+        var lg_id = $('#lg_id').val();
+        var caller_id_name = extensionName;
+        var caller_id_number = extensionNumber;
+        console.log(lg_id);
+        console.log(campaign_id);
+        console.log(caller_id_number);
+        var outgoingBandwidth = 'default';
+        var incomingBandwidth = 'default';
+        if (!lg_contact_number) {
+            lg_contact_number = 0;
+        }
+        console.log(lg_contact_number);
+
+	currentCall.hold(); //25-1-2020
+
+        currentCall = vertoHandle.newCall({
+            // Extension to dial.
+            destination_number: lg_contact_number,
+            caller_id_name: caller_id_name,
+            caller_id_number: caller_id_number,
+            outgoingBandwidth: outgoingBandwidth,
+            incomingBandwidth: incomingBandwidth,
+            useStereo: true,
+            useVideo: false,
+            userVariables: {
+                agent_id: agent_id,
+                lead_id: lg_id,
+                campaign_id: campaign_id
+            },
+            dedEnc: false,
+        });
+    };
+
+    var count = 0;
+
+    $(".digit").on('click', function () {
+        var num = ($(this).clone().children().remove().end().text());
+        if (count < 11) {
+            $("#output").append('<span>' + num.trim() + '</span>');
+            count++
+        }
+    });
+
+    $("#clear").click(function () {
+        $("#output :last").remove();
+        count--;
+    });
+
+    $("#call").click(function () {
+        if (count) {
+	    is_m_call = true; //18-1-2020
+            makeCallDialPad();
+            $("#dialPadModal").modal('close');
+            $("#output").html('');
+            count = 0;
+        }
+    });
+
+    function onDialogState(d) {
+        if (!currentCall) {
+            currentCall = d;
+        }
+        if (d.state.name == 'hangup') {
+	    console.log( "is_stop_playback ====> " + is_stop_playback );	
+	    if(is_stop_playback == true)
+	    {
+		//is_stop_playback = false;
+		return;
+	    } 
+            callHangupBtn();
+            $('#modal1').modal({
+                dismissible: false, // Modal can be dismissed by clicking outside of the modal
+            });
+            //var $this = $('.mute-unmute').toggleClass('mute-unmute');
+            $('#modal1').modal('open');
+	    is_disp_submit = false; //20-1-2020
+
+            deleteActiveCallStatus();
+            updateCallStatus();
+            //$('#crmmodal').modal();
+            $('#crmmodal').modal('close');
+            if (campaignType != 'Blended' && campaignDialerType != 'AUTO') {
+                //updateHangUpStatus();
+            }
+	    updateHangUpStatus(); //20-01-2020
+
+            //$('.dialnext').removeAttr('disabled');
+            $('.dialnext').attr('src', urlDialnext);
+            $('.pause').attr('src', urlPause);
+
+            //$(".call-timer").hide();
+            $(".call-timer").html("00:00:00");
+	    //updateDashboard();
+            //updateCallStatus();
+        }
+        if (d.state.name == 'answering') {
+            console.log("==============answer===================");
+            updateAnswertime();
+            updateAnswerStatus();
+        }
+        if (d.state.name == 'active') {
+            $('#mute-call').attr('src', EnableUnmute);
+            $('#hold-call').attr('src', urlUnHold);
+            $('#hang-up-call').attr('src', urlHangup);
+            console.log("==============active===================");
+            var laststate = currentCall.lastState['name'];
+            console.log("==============active===================" + laststate);
+            if (laststate != 'held') {
+                updateAnswertime();
+                updateCallStatus();
+                updateAnswerStatus();
+            }
+        }
+        if (d.state.name == 'ringing') {
+	    is_call_active = true;
+	    if (typeof (Storage) !== "undefined") 
+	    { 
+		window.localStorage.setItem('call_mute', true); 	
+		window.localStorage.setItem('call_hold', true); 
+	    }
+	
+            //$('.leftside-navigation li a').bind('click', false);
+            //$('.pause').attr('disabled', 'disabled');
+            if ($('.pause').attr('src') == urlDisablePause) {
+                return false;
+            }
+            $('.pause').attr('src', urlDisablePause);
+
+            current_uuid = currentCall.params.callID;
+            console.log("current_uuid ", current_uuid);
+            console.log('extsionNumber : ', extensionNumber);
+            campaignCdr(extensionNumber);
+            //updateRingingStatus();
+
+            // $('#transfer-call').removeAttr('disabled');
+            $('#transfer-call').attr('src', urlTransfercall);
+            console.log("Ringing Current Call", currentCall);
+
+            console.log('campaignType', campaignType);
+            console.log('campaignDialerType', campaignDialerType);
+
+            console.log("User Varible", currentCall.params.userVariables);
+            updateCallStatus();
+            activeCallScreen();
+            if (currentCall.params.verto_h_lead_id) {
+                callProgresiveType();
+                console.log("Get Lead Id ", currentCall.params.verto_h_lead_id);
+            } else if (currentCall.params.remote_caller_id_number) {
+                callProgresiveType();
+                console.log("Get Caller Number Id ", currentCall.params.verto_h_lead_id);
+            }
+            //alert('Someone is calling you, answer!');
+
+            if (campaignType == 'Inbound') {
+                if (currentCall.params.verto_h_auto_answer == 'yes') {
+                    currentCall.answer();
+                } else if (currentCall.params.verto_h_auto_answer == 'no') {
+                    $('#incomingCall').modal({
+                        dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                    });
+                    $('#incomingCall').modal('open');
+                    if (currentCall.params.caller_id_number) {
+                        console.log('Caller Id Number', currentCall.params.caller_id_number);
+                        $('#caller_id_number').val(currentCall.params.caller_id_number);
+                    }
+                } else if (!currentCall.params.verto_h_auto_answer) {
+                    currentCall.answer();
+                }
+
+                /*campaignCdr();*/
+                console.log("Inbound Current Call", currentCall);
+            } else if (campaignType == 'Outbound' && campaignDialerType == 'PREVIEW') {
+                $('#incomingCall').modal({
+                    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                });
+                $('#incomingCall').modal('open');
+                if (currentCall.params.caller_id_number) {
+                    console.log('Caller Id Number', currentCall.params.caller_id_number);
+                    $('#caller_id_number').val(currentCall.params.caller_id_number);
+                }
+            } else if (campaignType == 'Outbound' && campaignDialerType == 'PROGRESSIVE') {
+                console.log('Progresive');
+                currentCall.answer();
+            } else if (campaignType == 'Blended' && campaignDialerType == 'AUTO') {
+                //**	if (currentCall.params.verto_h_cc_queue) {
+                //   currentCall.answer();
+                //}
+                $('#incomingCall').modal({
+                    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                });
+                $('#incomingCall').modal('open');
+                if (currentCall.params.caller_id_number) {
+                    console.log('Caller Id Number', currentCall.params.caller_id_number);
+                    $('#caller_id_number').val(currentCall.params.caller_id_number);
+                }
+                /*	}
+                    else{
+                        currentCall.answer();
+                    }*/
+            }
+
+            /*$('#answer-call').removeAttr('disabled');*/
+            //$('.dialnext').attr('disabled', 'disabled');
+            if ($('.dialnext').attr('src') == urlDialnext) {
+                $('.dialnext').attr('src', urlDisableDialnext);
+                return false;
+            }
+        }
+	console.log(" ===========> d.state.name =============> " + d.state.name);
+        switch (d.state.name) {
+            case "trying":
+                //$('.leftside-navigation li a').bind('click', false);
+                //$('.pause').attr('disabled', 'disabled');
+                if ($('.pause').attr('src') == urlDisablePause) {
+                    return false;
+                }
+                $('.pause').attr('src', urlDisablePause);
+                console.log("trying call ended with cause: " + d.cause);
+                updateCallStatus();
+                break;
+                //$('#transfer-call').removeAttr('disabled');
+                $('#transfer-call').attr('src', urlTransfercall);
+            case "active":
+	
+		//currentCall.hold();
+		//currentCall.unhold();
+		unHoldCall();
+
+		//if (campaignType == 'Inbound') {
+		if ((campaignType == 'Inbound') || (campaignType == 'Blended' && campaignDialerType == 'AUTO')) {
+			console.log(" currentCall.params.verto_h_aleg_uuid " + currentCall.params.verto_h_aleg_uuid);
+                	stopPlayback(currentCall.params.verto_h_aleg_uuid); 
+		}
+	        is_call_active = true;
+                // $('#mute-call').removeAttr('disabled');
+                $('#mute-call').attr('src', EnableUnmute);
+                // $('#hold-call').removeAttr('disabled');
+                $('#hold-call').attr('src', urlUnHold);
+                //$('#hang-up-call').removeAttr('disabled');
+                $('#hang-up-call').attr('src', urlHangup);
+
+		console.log("=======> CLICK ON HOLD UNHOLD" + window.localStorage.getItem("call_hold"));	
+		if (window.localStorage.getItem('call_hold')) 
+		{		      
+		      if(window.localStorage.getItem("call_hold") == "false")
+		      {	
+				$('.hold-unhold').toggleClass('hold-unhold');
+				console.log("=======> CLICK ON HOLD UNHOLD <=======" + window.localStorage.getItem("call_hold"));	
+				$('#hold-call').attr('src', urlHold);
+			    	$('#hold-call').attr('title', titlehold);
+				currentCall.unhold();
+				currentCall.hold();
+		      }
+                }
+
+		console.log("=======> CLICK ON MUTE UNMUTE" + window.localStorage.getItem("call_mute"));	
+		if (window.localStorage.getItem('call_mute')) 
+		{		      
+		      if(window.localStorage.getItem("call_mute") == "false")
+		      {	
+				$('.mute-unmute').toggleClass('mute-unmute');
+				console.log("=======> CLICK ON MUTE UNMUTE <=======" + window.localStorage.getItem("call_mute"));	
+				$('#mute-call').attr('src', urlMute);
+			        $('#mute-call').attr('title', titleMute);	
+				console.log("=======> CLICK ON MUTE UNMUTE <=======");
+				console.log(currentCall);
+				currentCall.setMute("off");
+		      }
+                } 
+
+                //$('.dialnext').attr('disabled', 'disabled');
+                if ($('.dialnext').attr('src') == urlDialnext) {
+                    $('.dialnext').attr('src', urlDisableDialnext);
+                    return false;
+                }
+
+                updateCallStatus();
+                /*activeCallerId = current  Call.params.caller_id_number;
+                activeCallId = currentCall.params.callID;
+                activeDestiNumber = currentCall.params.destination_number;*/
+                if (currentCall.params.userVariables) {
+                    var activeAgentName = currentCall.params.userVariables.agent_id;
+                } else {
+                    var activeAgentName = currentCall.params.verto_h_agent_id;
+                }
+                console.log('Agents Name : ' + activeAgentName);
+                console.log("Active Current Call", currentCall);
+
+                // $('.pause').attr('disabled', 'disabled');
+		console.log("Here Here Here Here");
+		//timer.start();
+                $(".call-timer").show();
+
+                if ($('.pause').attr('src') == urlDisablePause) {
+                    return false;
+                }
+                $('.pause').attr('src', urlDisablePause);
+                console.log("active call ended with cause: " + d.cause);
+
+                //$('#unmute-call').removeAttr('disabled');
+                //$('#transfer-call').removeAttr('disabled');
+                $('#transfer-call').attr('src', urlTransfercall);
+                //$('.leftside-navigation li a').removeAttr('href');
+                //$('.leftside-navigation li a').bind('click', false);
+                //timer.start();
+                $(".call-timer").show();
+                break;
+            /*    case "ringing":
+                    console.log("Ringing Current Call" , currentCall);
+                    $('#answer-call').removeAttr('disabled');
+                    alert('Someone is calling you, answer!');
+                    //console.log("ringing call ended with cause: " + d.cause);
+                    break;*/
+            case "answering":
+		is_call_active = true;
+                //$('.leftside-navigation li a').bind('click', false);
+                //$('.pause').attr('disabled', 'disabled');
+                /*if ($('.pause').attr('src') == urlPause) {
+                    $('.pause').attr('src', urlDisablePause);
+                    return false;
+                }*/
+                if ($('.pause').attr('src') == urlDisablePause) {
+                    return false;
+                }
+                $('.pause').attr('src', urlDisablePause);
+
+                updateCallStatus();
+                console.log("Answering Current Call", currentCall);
+                //$('#transfer-call').removeAttr('disabled');
+                $('#transfer-call').attr('src', urlTransfercall);
+                console.log("answering call ended with cause: " + d.cause);
+                break;
+            case "hangup":
+
+		console.log("currentCallNew currentCallNew ==> " + currentCallNew);
+		//if(currentCallNew)
+		//{
+			console.log("INSIDE INSIDE currentCallNew currentCallNew ==> " + currentCallNew);
+			/* currentCall.unhold();
+			currentCall.hold();
+			currentCall.unhold(); */
+		//}
+		console.log( "is_stop_playback ====> " + is_stop_playback );
+		if(is_stop_playback == true)
+  	        {
+			//is_stop_playback = false;
+			return;
+		} 
+
+		is_call_active = false;
+                callHangupBtn();
+                //$('.dialnext').removeAttr('disabled');
+                $('.dialnext').attr('src', urlDialnext);
+                $('.dialnext').attr('src', urlDialnext);
+                updateCallStatus();
+                deleteActiveCallStatus();
+                console.log("Hangup Current Call", currentCall);
+                $('#modal1').modal({
+                    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                });
+                //var $this = $('.mute-unmute').toggleClass('mute-unmute');
+                $('#modal1').modal('open');
+		is_disp_submit = false; //20-1-2020
+                //$('#hold-call').attr('disabled', 'disabled');
+                //$('#unhold-call').attr('disabled', 'disabled');
+                //$('#hang-up-call').attr('disabled', 'disabled');
+                //$('#transfer-call').attr('disabled', 'disabled');
+
+                /*$('#mute-call').attr('disabled', 'disabled');
+                $('#unmute-call').attr('disabled', 'disabled');*/
+                //$('.leftside-navigation li a').attr('href');
+                $('.leftside-navigation li a').unbind('click', false);
+                //$('.pause').removeAttr('disabled');
+
+                timer.stop();
+                //$(".call-timer").hide();
+                $(".call-timer").html("00:00:00");
+		//updateDashboard();
+
+  	        if (typeof (Storage) !== "undefined") 
+		{ 
+			window.localStorage.setItem('call_mute', true); 	
+			window.localStorage.setItem('call_hold', true); 
+		}			
+
+                break;
+            case "destroy":
+		//is_call_active = false;
+                //updateCallStatus();
+                //currentCall = null;
+		deleteActiveCallStatus();
+                console.log("destroy call ended with cause: " + d.cause);
+		//updateDashboard();
+		/* if (typeof (Storage) !== "undefined") 
+		{ 
+			window.localStorage.setItem('call_mute', true); 	
+			window.localStorage.setItem('call_hold', true); 
+		} */
+                break;
+        }
+    }
+
+    function onMessage(verto, dialog, message, data) {
+        switch (message) {
+            case $.verto.enum.message.pvtEvent:
+                if (data.pvtData) {
+                    switch (data.pvtData.action) {
+                        case "conference-liveArray-join":
+                            initLiveArray(verto, dialog, data);
+                            break;
+                        case "conference-liveArray-part":
+                            break;
+                    }
+                }
+                break;
+            case $.verto.enum.message.info:
+                break;
+            case $.verto.enum.message.display:
+                break;
+            case $.verto.enum.message.clientReady:
+                break;
+        }
+    }
+
+    function calldialNext() {
+        $.ajax({
+            async: false,
+            url: baseURL + "index.php?r=crm/crm/dial-next-data",
+            success: function (data) {
+                if (data.length) {
+                    if (!window.localStorage.getItem('crm')) {
+                        window.localStorage.setItem('crm', data);
+                    }
+                    //localStorage.setItem("user", JSON.stringify(data));
+                    if (typeof (Storage) !== "undefined") {
+                        window.localStorage.setItem('crm', data);
+                        var jsonString = window.localStorage.getItem("crm");
+                        var result = JSON.parse(jsonString);
+                        window.localStorage.removeItem("crmupdatedlead");
+                    } else {
+                        alert("Sorry, your browser does not support web storage...");
+                    }
+                    console.log('result', result);
+                    //var result = JSON.parse(data);
+                    $('#leadgroupmember-lg_first_name').val(result.lg_first_name);
+                    $('#leadgroupmember-lg_last_name').val(result.lg_last_name);
+                    $('#lg_contact_number').val(result.lg_contact_number);
+                    $('#leadgroupmember-lg_contact_number_2').val(result.lg_contact_number_2);
+                    $('#leadgroupmember-lg_email_id').val(result.lg_email_id);
+                    $('#leadgroupmember-lg_address').val(result.lg_address);
+                    $('#leadgroupmember-lg_alternate_number').val(result.lg_alternate_number);
+                    $('#leadgroupmember-lg_pin_code').val(result.lg_pin_code);
+                    $('#leadgroupmember-lg_permanent_address').val(result.lg_permanent_address);
+                    $('#leadcommentmapping-comment').val(result.comment);
+                    $('#pk_id').val(result.pk_id);
+                    $('#lg_id').val(result.lg_id);
+                    $('#lg_id1').val(result.lg_id);
+                    $('#submitbtn').show();
+                    $('ul.tabs').tabs('select', 'CRM');
+                    //$('#lead-ajax-form textarea').val('');
+                    makeCall();
+                    activeCallScreen();
+                    campaignCdr(extensionNumber);
+                    // alert('Updated Sucessfully');
+                } else {
+                    $('#lead-group-member-form').html(no_more_lead_in_hopper);
+                    //$('#lead-group-member-form').html('<h6>No more leads in the hopper for campaign</h6>');
+                }
+            }
+        });
+    }
+
+    // Location Storage Start
+    $(document).ready(function () {
+        //window.localStorage.removeItem("crm");
+        if (window.localStorage.getItem("crmupdatedlead")) {
+            console.log('Click Update')
+            var jsonUpdatedLead = window.localStorage.getItem("crmupdatedlead");
+            var updatedLead = JSON.parse(jsonUpdatedLead);
+
+            $('#leadgroupmember-lg_first_name').val(updatedLead.crmlist.lg_first_name);
+            $('#leadgroupmember-lg_last_name').val(updatedLead.crmlist.lg_last_name);
+            $('#lg_contact_number').val(updatedLead.crmlist.lg_contact_number);
+            $('#leadgroupmember-lg_contact_number_2').val(updatedLead.crmlist.lg_contact_number_2);
+            $('#leadgroupmember-lg_email_id').val(updatedLead.crmlist.lg_email_id);
+            $('#leadgroupmember-lg_address').val(updatedLead.crmlist.lg_address);
+            $('#leadgroupmember-lg_alternate_number').val(updatedLead.crmlist.lg_alternate_number);
+            $('#leadgroupmember-lg_pin_code').val(updatedLead.crmlist.lg_pin_code);
+            $('#leadgroupmember-lg_permanent_address').val(updatedLead.crmlist.lg_permanent_address);
+            $('#leadcommentmapping-comment').val(updatedLead.comment);
+            $('#pk_id').val(updatedLead.pk_id);
+            $('#lg_id').val(updatedLead.lg_id);
+            $('#lg_id1').val(updatedLead.lg_id);
+
+        } else if (window.localStorage.getItem("crm")) {
+            console.log('Not Click Update')
+            var jsonString = window.localStorage.getItem("crm");
+            var result = JSON.parse(jsonString);
+            $('#leadgroupmember-lg_first_name').val(result.lg_first_name);
+            $('#leadgroupmember-lg_last_name').val(result.lg_last_name);
+            $('#lg_contact_number').val(result.lg_contact_number);
+            $('#leadgroupmember-lg_contact_number_2').val(result.lg_contact_number_2);
+            $('#leadgroupmember-lg_email_id').val(result.lg_email_id);
+            $('#leadgroupmember-lg_address').val(result.lg_address);
+            $('#leadgroupmember-lg_alternate_number').val(result.lg_alternate_number);
+            $('#leadgroupmember-lg_pin_code').val(result.lg_pin_code);
+            $('#leadgroupmember-lg_permanent_address').val(result.lg_permanent_address);
+            $('#leadcommentmapping-comment').val(result.comment);
+            $('#pk_id').val(result.pk_id);
+            $('#lg_id').val(result.lg_id);
+            $('#lg_id1').val(result.lg_id);
+        }
+    });
+
+
+// Location storage end
+
+    function callProgresiveType() {
+        if (currentCall.params.verto_h_lead_id) {
+            var leadId = currentCall.params.verto_h_lead_id;
+        } else if (currentCall.params.remote_caller_id_number) {
+            var leadCallerIdNumber = currentCall.params.remote_caller_id_number;
+        }
+
+        $.ajax({
+            type: 'POST',
+            data: {leadCallerIdNumber: leadCallerIdNumber, lead_id: leadId},
+            async: false,
+            url: baseURL + "index.php?r=crm/crm/progresive-data",
+            success: function (data) {
+                //$("#CRM").html(data);
+                if (data.length) {
+                    //var result = JSON.parse(data);
+                    //console.log(result);
+
+                    if (!window.localStorage.getItem('crm')) {
+                        window.localStorage.setItem('crm', data);
+                    }
+                    if (typeof (Storage) !== "undefined") {
+                        window.localStorage.setItem('crm', data);
+                        var jsonString = window.localStorage.getItem("crm");
+                        var result = JSON.parse(jsonString);
+                        window.localStorage.removeItem("crmupdatedlead");
+                    } else {
+                        alert("Sorry, your browser does not support web storage...");
+                    }
+                    console.log('Progresive result', result);
+
+                    if (result.data_found) {
+                        $('#leadgroupmember-lg_first_name').val(result.lg_first_name);
+                        $('#leadgroupmember-lg_last_name').val(result.lg_last_name);
+                        $('#lg_contact_number').val(result.lg_contact_number);
+                        $('#leadgroupmember-lg_contact_number_2').val(result.lg_contact_number_2);
+                        $('#leadgroupmember-lg_email_id').val(result.lg_email_id);
+                        $('#leadgroupmember-lg_address').val(result.lg_address);
+                        $('#leadgroupmember-lg_alternate_number').val(result.lg_alternate_number);
+                        $('#leadgroupmember-lg_pin_code').val(result.lg_pin_code);
+                        $('#leadgroupmember-lg_permanent_address').val(result.lg_permanent_address);
+                        $('#leadcommentmapping-comment').val(result.comment);
+                        console.log('comment from if ====>', result.comment, $('#leadcommentmapping-comment'), $('#leadcommentmapping-comment').val());
+
+                        $('#pk_id').val(result.pk_id);
+                        $('#lg_id').val(result.lg_id);
+                        $('#lg_id1').val(result.lg_id);
+                        $('#submitbtn').show();
+                        $('ul.tabs').tabs('select', 'CRM');
+                        // $('#lead-ajax-form textarea').val('');
+                        //currentCall.answer();
+                    } else {
+                        $('#pk_id').val(result.pk_id);
+                        $('#lg_id').val(result.lg_id);
+                        $('#lg_id1').val(result.lg_id);
+                        $('#leadcommentmapping-comment').val(result.comment);
+                        console.log('comment from else ====>', result.comment, $('#leadcommentmapping-comment'), $('#leadcommentmapping-comment').val());
+                        //$('#lead-group-member-form').html('<h6>No more leads in the hopper for campaign</h6>');
+                        $('#lg_contact_number').val(leadCallerIdNumber);
+                        $('#submitbtn').show();
+                    }
+                }
+            }
+        });
+
+    }
+
+    function callcrm() {
+        $.ajax({
+            async: false,
+            url: baseURL + "index.php?r=crm/crm/crm",
+            success: function (result) {
+                $('#form_elem').html(result);
+            }
+        });
+    }
+
+    function submitDisposition() 
+    {
+	is_disp_submit = true; //20-1-2020
+	updateHangUpStatuscustom();
+
+        //var uuId = current_uuid;
+        if (currentCall.params.callID === "undefined")
+            var uuId = current_uuid;
+        else
+            var uuId = currentCall.params.callID;
+
+        var cause = currentCall.cause;
+        var data = $('#submit-disposition-form').serializeArray();
+        data.push({'name': 'callId', 'value': uuId}, {'name': 'cause', 'value': cause});
+        console.log(data);
+        currentCall = null;
+        $.ajax({
+            async: false,
+            data: data,
+            type: 'POST',
+            url: baseURL + "index.php?r=crm/crm/submit-disposition",
+            success: function (result) 
+	    {
+		if(is_m_call == true)
+		{
+			is_m_call

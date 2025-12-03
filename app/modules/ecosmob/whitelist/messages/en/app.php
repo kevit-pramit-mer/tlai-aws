@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'wl_id'          => 'ID',
+    'wl_number'      => 'White List Number',
+    'wl_description' => 'Description',
+    'updated_date'   => 'Updated Date',
+    'created_date'   => 'Created Date',
+    
+    'created_success'       => 'Created Successfully',
+    'applied_success'       => 'Applied Successfully',
+    'updated_success'       => 'Updated Successfully',
+    'deleted_success'       => 'Deleted Successfully',
+    'not_found'             => 'The requested page does not exist',
+    'importFileUpload'      => 'File',
+    'import'                => 'Import',
+    'download_sample_file'  => 'Sample File',
+    'uploaded_success'      => 'Uploaded Successfully',
+    'total_uploaded_number' => 'Uploaded number',
+    'already_exist'         => 'already exist',
+    'total_faulty_number'   => 'faulty number',
+    'invalid_format'        => 'Invalid format',
+    'file'                  => 'File',
+    'create_white_list'     => 'Create White List',
+    'white_list'            => 'White List',
+    'update_white_list'     => 'Update White List: ',
+
+    'create' => 'Create',
+    'update' => 'Update',
+    'apply' => 'Apply',
+    'cancel' => 'Cancel',
+    'search' => 'Search',
+    'reset' => 'Reset',
+    'add_new'   => 'Add New',
+    'wl_number_min_validation' => 'White List Number should contain at least 3 digits.',
+    'wl_number_max_validation' => 'Maximum 20 digits allowed.',
+];

@@ -1,0 +1,18 @@
+version: '2'
+services:
+   routing_engine:
+     hostname: routing_engine
+     container_name: routing_engine
+     network_mode: "host"
+     restart: always
+     image: routing_engine:latest
+     ulimits:
+       core: -1
+     logging:
+       options:
+         max-size: 50m
+     volumes:
+       - ./odbc.ini:/etc/odbc.ini
+       - ./odbcinst.ini:/etc/odbcinst.ini
+       - ./routing.log:/var/log/routing_engine/routing.log
+

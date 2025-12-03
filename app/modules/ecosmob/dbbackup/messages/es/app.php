@@ -1,0 +1,35 @@
+<?php
+return [
+    'db_backup' => "Backups de BD",
+    'db_backups' => "Backup de BD",
+    'backup_name' => "Nombre Backup",
+    'backup_date' => "Fecha Backup",
+    'backup_created_date' => "Fecha de creación de backup",
+    'backup_from_date' => "Fecha de inicio backup",
+    'backup_to_date' => "Fecha de fin backup",
+    'backup_restore' => "Restaurar",
+    'backup_restore_confirm' => "Seguro de restaurar esta BD?",
+    'backup_date_validation_error_msg' => "Fecha fin debe ser superior a fecha inicio de backup",
+    'backup_proccess_start_in_msg' => "El proceso de restauracion de la base de datos iniciará en 10 minutos.",
+    'backup_proccess_start_soon_msg' => "El proceso de restauración de la base de datos iniciará pronto",
+    'backup_something_wrong_msg' => "Algo salio mal. Por favor, intente nuevamente.",
+    'backup_proccess_already_started' => "El proceso de restauración de la base de datos ya ha iniciado",
+    'backup_proccess_completed' => "Backup restored successfully.",
+    'backup_proccess_error' => "Error occurred, Backup not restored.",
+    'backup_proccess_another' => "One restore service in process, You Cannot start another process.",
+
+    'something_wrong' => "Algo salio mal. Por favor, intente nuevamente.",
+    'download' => "Descargar",
+    'add_new' => 'Agregar nuevo',
+
+    'create_db_backup' => "Create Db Backup",
+    'file' => 'Archivo',
+
+    'created_success' => 'Archivo cargado exitósamente',
+    'file_not_allowed' => 'No se permite cargar archivo',
+    'note' => 'Nota',	
+    'note1' => 'Cargar solo archivos descargados previamente (Ej. calltech_2021_08_08.sql.zip).',	
+    'note2' => 'Verifique el archivo en la lista de backups antes de cargarlo.',	
+    'note3' => 'Si se carga un archivo diferente no funcionará.',	
+    'note4' => 'Despues de cagarlo, el archivo estará disponible en la lista para restaurar.',
+];

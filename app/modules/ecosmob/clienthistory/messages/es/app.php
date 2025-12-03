@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'cancel' => 'Cancel',
+    'search' => 'Buscar',
+    'reset' => 'Reiniciar',
+    'dial_number' => 'Número marcado',
+    'call_disposion_name' => 'Calificación',
+    'call_disposion_decription' => 'Descripción de Calificación',
+    'agent_name' => 'Nombre del agente',
+    'campaign_name' => 'Nombre de campaña',
+    'call_disposion_start_time' => 'Tiempo de calificación de llamada',
+    'start_time' => 'Hora de inicio de llamada',
+    'export' => 'Exportar',
+    'clt_history' => 'Historia del cliente',
+    'from' => 'Desde',
+    'to' => 'A',
+    'select_campaign' => 'Seleccionar campaña',
+    'campaign' => 'Campaña',
+    'no_records_found_to_export' => 'No hay registros para exportar.',
+    'customer_first_name' => 'Nombre del cliente',
+    'customer_last_name' => 'Apellido del cliente',
+    'agent_first_name' => 'Nombre del agente',
+    'agent_last_name' => 'Apellido del agente',
+    'from_date' => 'Partir de la fecha',
+    'to_date' => 'Hasta la fecha',
+    'disposition_comment' => 'Comentario de disposición',
+];

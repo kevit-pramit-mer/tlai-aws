@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+  fs_curl:
+    image: dockerregistry.ecosmob.net:5000/meghuc-fscurl:v4
+    container_name: fs_curl
+    ports:
+      - "81:81"
+    restart: always
+    networks:
+      - mysqldb        # for mysql
+      - uc-connection  # for mongo, rabbitmq, tenant_portal, etc.
+    volumes:
+      - ./data/conf.d:/etc/nginx/conf.d
+      - ./global_defines.php:/usr/share/nginx/html/fs_curl/global_defines.php
+    logging:
+      options:
+        max-size: 20m
+
+networks:
+  mysqldb:
+    external: true
+  uc-connection:
+    external: true

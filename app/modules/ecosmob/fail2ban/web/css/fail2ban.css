@@ -1,0 +1,18 @@
+.select-month input {
+    display: block !important;
+    /*color: #E24E42 !important;*/
+    font-size: 17px !important;
+}
+
+.select-year input {
+    display: block !important;
+    font-size: 17px !important;
+    /*color: #E24E42 !important;*/
+}
+
+.datepicker-controls .select-month input {
+    width: 92px;
+}
+.dataTables_scrollHeadInner {
+    width: 100% !important;
+}

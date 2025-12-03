@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  rtpengine:
+    image: rtp_engine:latest
+    network_mode: 'host' # At the moment this option only works in Linux
+    environment:
+      RTPENGINE_PUBLIC_IP: 72.60.40.106
+      RTPENGINE_PORT_MIN: 10000
+      RTPENGINE_PORT_MAX: 20000
+      RTPENGINE_LOG_LEVEL: '6'

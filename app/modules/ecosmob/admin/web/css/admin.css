@@ -1,0 +1,31 @@
+
+.box {
+    width: 25px;
+    height: 25px;
+}
+
+.consumed {
+    background: #FF69B4;
+    margin-left: 15px;
+}
+
+.allocated {
+    background: #0e84b5;
+    margin-left: 15px;
+}
+
+.available {
+    background: #00aa00;
+    margin-left: 15px;
+}
+
+.used {
+    background: #663333;
+    margin-left: 15px;
+}
+
+#accept-message {
+    position: absolute;
+    margin-top: 1.45px;
+    margin-left: 4px;
+}

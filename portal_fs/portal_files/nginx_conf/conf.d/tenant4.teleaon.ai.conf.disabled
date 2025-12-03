@@ -1,0 +1,64 @@
+server {
+    listen 80;
+    server_name tenant4.teleaon.ai;
+    return 301 https://tenant4.teleaon.ai$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+
+    server_name tenant4.teleaon.ai;
+
+    ssl_certificate     /opt/fullchain.pem;
+    ssl_certificate_key /opt/privkey.pem;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_ciphers 'TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+    add_header X-Frame-Options "sameorigin" always;
+
+    root /usr/share/nginx/html/uctenant/web/;
+    index index.php index.html index.htm;
+    client_max_body_size 500M;
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3001/;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+        proxy_buffering off;
+        proxy_request_buffering off;
+    }
+
+    location /socket.io/ {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade    $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_send_timeout 300;
+        proxy_buffering off;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_index index.php;
+        fastcgi_read_timeout 240;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    }
+}
+

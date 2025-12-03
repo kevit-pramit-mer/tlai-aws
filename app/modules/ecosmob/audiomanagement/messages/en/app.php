@@ -1,0 +1,35 @@
+<?php
+
+return [
+    'id' => 'ID',
+    'name' => 'Name',
+    'type' => 'Type',
+    'language' => 'Language',
+    'description' => 'Description',
+    'file' => 'File',
+    'create_audio_library' => 'Create Audio Library',
+    'update_audio_library' => 'Update Prompt Library : ',
+    'file_type' => 'Select File Type',
+    'created_success' => 'Created Successfully',
+    'applied_success' => 'Applied Successfully',
+    'updated_success' => 'Updated Successfully',
+    'deleted_success' => 'Deleted Successfully',
+    'page_not_found' => 'The requested page does not exist',
+    'af_extension' => 'Record over extension',
+    'select' => 'Select',
+    'create' => 'Create',
+    'update' => 'Update',
+    'apply' => 'Apply',
+    'cancel' => 'Cancel',
+    'add_new' => 'Add New',
+    'aud_lib' => 'Audio Libraries',
+    'recording' => 'Recording',
+    'MOH' => 'MOH',
+    'prompt' => 'Prompt',
+    'only_mp3_wav_file_supported' => 'Only MP3, Wav format is supported. Maximum file size is 10MB.',
+    'call_and_create' => 'Call & Create',
+    'audio_libraries' => 'Audio Libraries',
+    'limit_is_10mb' => 'Limit is 10MB',
+    'can_not_delete' => 'Can not delete, It is assigned.'
+
+];
