@@ -1,0 +1,847 @@
+​-----------------------------------------------------Browser Logs--------------------------------------------------
+
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | Configuration: sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · sessionDescriptionHandlerFactoryOptions: {} sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · sipExtension100rel: "Unsupported" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · sipExtensionReplaces: "Unsupported" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · sipExtensionExtraSupported: [] sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · sipjsId: "fl5bb" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · transportConstructor: Transport sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · transportOptions: {"server":"wss://tenant1.teleaon.ai:5068"} sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · uri: sip:1004@tenant1.teleaon.ai sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · userAgentString: "SIP.js/0.21.2" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | · viaHost: "bgp1h768jscf.invalid" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | Starting sip:1004@tenant1.teleaon.ai sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.UserAgent | Transitioned from Stopped to Started sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.Transport | Connecting wss://tenant1.teleaon.ai:5068 sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.Transport | Transitioned from Disconnected to Connecting sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.Transport | WebSocket opened wss://tenant1.teleaon.ai:5068 sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:00:59 GMT+0530 (India Standard Time) | sip.Transport | Transitioned from Connecting to Connected sip-0.21.2.js:9591:25
+Object { "*0": null, "*1": null, "*2": null, "*3": null, "*4": null, "*5": null, "*6": null, "*7": null, "*8": null, "*9": null }
+sipEventHandler.js:555:25
+UserAgent started: 
+Object { _publishers: {}, _registerers: {}, _sessions: {}, _subscriptions: {}, _state: "Started", _stateEventEmitter: {…}, delegate: {…}, options: {…}, loggerFactory: {…}, logger: {…}, … }
+mainSIP.js:52:17
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | Configuration: sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · expires: 600 sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · extraContactHeaderParams: [] sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · extraHeaders: [] sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · logConfiguration: true sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · instanceId: "" sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · params: {} sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · regId: 0 sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · registrar: sip:tenant1.teleaon.ai sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | · refreshFrequency: 99 sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | Waiting toggled to true sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Sending WebSocket message:
+
+REGISTER sip:tenant1.teleaon.ai SIP/2.0
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;branch=z9hG4bK5615664
+
+To: <sip:1004@tenant1.teleaon.ai>
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=ie6jndur7t
+
+CSeq: 2 REGISTER
+
+Call-ID: fl5bbvjr8d4cmf9ivom7
+
+Max-Forwards: 70
+
+Contact: <sip:1004@bgp1h768jscf.invalid;transport=ws>;expires=600
+
+Allow: ACK,CANCEL,INVITE,MESSAGE,BYE,OPTIONS,INFO,NOTIFY,REFER
+
+Supported: outbound, path, gruu
+
+User-Agent: SIP.js/0.21.2
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Registered successfully sipMain.js:38:33
+UserAgent registered: 
+Object { _publishers: {}, _registerers: {…}, _sessions: {}, _subscriptions: {}, _state: "Started", _stateEventEmitter: {…}, delegate: {…}, options: {…}, loggerFactory: {…}, logger: {…}, … }
+mainSIP.js:125:21
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Received WebSocket text message:
+
+SIP/2.0 401 Unauthorized
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;rport=53330;received=172.31.7.125;branch=z9hG4bK5615664
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=ie6jndur7t
+
+To: <sip:1004@tenant1.teleaon.ai>;tag=v8ZDXjeUNQS4N
+
+Call-ID: fl5bbvjr8d4cmf9ivom7
+
+CSeq: 2 REGISTER
+
+User-Agent: UCPBX
+
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY, PUBLISH, SUBSCRIBE
+
+Supported: path, replaces
+
+WWW-Authenticate: Digest realm="tenant1.teleaon.ai", nonce="7b0a39cb-01d8-4837-8b56-eb3bc264bad1", algorithm=MD5, qop="auth"
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Sending WebSocket message:
+
+REGISTER sip:tenant1.teleaon.ai SIP/2.0
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;branch=z9hG4bK4033742
+
+To: <sip:1004@tenant1.teleaon.ai>
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=ie6jndur7t
+
+CSeq: 3 REGISTER
+
+Call-ID: fl5bbvjr8d4cmf9ivom7
+
+Max-Forwards: 70
+
+Authorization: Digest algorithm=MD5, username="1004", realm="tenant1.teleaon.ai", nonce="7b0a39cb-01d8-4837-8b56-eb3bc264bad1", uri="sip:tenant1.teleaon.ai", response="74a2f1ee0e716c8e3d2fdf08a619d1a2", qop=auth, cnonce="v6v8vu3u1vto", nc=00000001
+
+Contact: <sip:1004@bgp1h768jscf.invalid;transport=ws>;expires=600
+
+Allow: ACK,CANCEL,INVITE,MESSAGE,BYE,OPTIONS,INFO,NOTIFY,REFER
+
+Supported: outbound, path, gruu
+
+User-Agent: SIP.js/0.21.2
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Received WebSocket text message:
+
+SIP/2.0 200 OK
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;rport=53330;received=172.31.7.125;branch=z9hG4bK4033742
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=ie6jndur7t
+
+To: <sip:1004@tenant1.teleaon.ai>;tag=XHS6yDZyj0FQH
+
+Call-ID: fl5bbvjr8d4cmf9ivom7
+
+CSeq: 3 REGISTER
+
+Date: Fri, 05 Dec 2025 05:31:01 GMT
+
+User-Agent: UCPBX
+
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY, PUBLISH, SUBSCRIBE
+
+Supported: path, replaces
+
+Content-Length: 0
+
+Contact: <sip:1004@417frusms3jl.invalid;transport=ws>;expires=126;received="sip:172.31.7.125:51808;transport=wss", <sip:1004@bgp1h768jscf.invalid;transport=ws>;expires=600;received="sip:172.31.7.125:53330;transport=wss"
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | Registration transitioned to state Registered sip-0.21.2.js:9591:25
+UA Registration State ==>  Registered sipMain.js:27:29
+Registration State: Registered mainSIP.js:147:13
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Registerer | Waiting toggled to false sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Received WebSocket text message:
+
+NOTIFY sip:1004@bgp1h768jscf.invalid;transport=ws SIP/2.0
+
+Via: SIP/2.0/WSS 13.200.87.192:5065;branch=z9hG4bK7ea6.db2a9875.0
+
+Via: SIP/2.0/UDP 172.31.7.125:5071;received=13.200.87.192;rport=5071;branch=z9hG4bKjN23HcBa7Ne6p
+
+Max-Forwards: 69
+
+From: <sip:1004@tenant1.teleaon.ai>;tag=ytjZ08F2F959c
+
+To: <sip:1004@tenant1.teleaon.ai>
+
+Call-ID: 6d92baa2-4c3e-123f-41aa-0a08a81cc925
+
+CSeq: 107902538 NOTIFY
+
+Contact: <sip:mod_sofia@13.200.87.192:5071>
+
+User-Agent: UCPBX
+
+Allow: INVITE, ACK, BYE, CANCEL, OPTIONS, MESSAGE, INFO, UPDATE, REGISTER, REFER, NOTIFY, PUBLISH, SUBSCRIBE
+
+Supported: path, replaces
+
+Event: message-summary
+
+Allow-Events: talk, hold, conference, presence, as-feature-event, dialog, line-seize, call-info, sla, include-session-description, presence.winfo, message-summary, refer
+
+Subscription-State: terminated;reason=noresource
+
+Content-Type: application/simple-message-summary
+
+Content-Length: 70
+
+
+
+Messages-Waiting: no
+
+Message-Account: sip:1004@tenant1.teleaon.ai
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:01 GMT+0530 (India Standard Time) | sip.Transport | Sending WebSocket message:
+
+SIP/2.0 481 Call/Transaction Does Not Exist
+
+Via: SIP/2.0/WSS 13.200.87.192:5065;branch=z9hG4bK7ea6.db2a9875.0
+
+Via: SIP/2.0/UDP 172.31.7.125:5071;received=13.200.87.192;rport=5071;branch=z9hG4bKjN23HcBa7Ne6p
+
+From: <sip:1004@tenant1.teleaon.ai>;tag=ytjZ08F2F959c
+
+To: <sip:1004@tenant1.teleaon.ai>;tag=us4226goi0
+
+CSeq: 107902538 NOTIFY
+
+Call-ID: 6d92baa2-4c3e-123f-41aa-0a08a81cc925
+
+Supported: outbound
+
+User-Agent: SIP.js/0.21.2
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:22 GMT+0530 (India Standard Time) | sip.Inviter | Inviter.invite sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:24 GMT+0530 (India Standard Time) | sip.Inviter | Session fl5bbep818e9527m4ffugv6a4um2ah transitioned to state Establishing sip-0.21.2.js:9591:25
+ringTonePlay  states are - State: Establishing sipMain.js:169:17
+Fri Dec 05 2025 11:01:24 GMT+0530 (India Standard Time) | sip.Transport | Sending WebSocket message:
+
+INVITE sip:2004@tenant1.teleaon.ai SIP/2.0
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;branch=z9hG4bK7284702
+
+To: <sip:2004@tenant1.teleaon.ai>
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=gv6a4um2ah
+
+CSeq: 1 INVITE
+
+Call-ID: fl5bbep818e9527m4ffu
+
+Max-Forwards: 70
+
+X-caller_id_number:1004
+
+X-destination_number:2004
+
+Contact: <sip:1004@bgp1h768jscf.invalid;transport=ws;ob>
+
+Allow: ACK,CANCEL,INVITE,MESSAGE,BYE,OPTIONS,INFO,NOTIFY,REFER
+
+Supported: outbound
+
+User-Agent: SIP.js/0.21.2
+
+Content-Type: application/sdp
+
+Content-Length: 6388
+
+
+
+v=0
+
+o=mozilla...THIS_IS_SDPARTA-99.0 4197190689827161399 0 IN IP4 0.0.0.0
+
+s=-
+
+t=0 0
+
+a=sendrecv
+
+a=fingerprint:sha-256 D2:6C:D2:27:EF:25:0D:2E:57:A0:BD:19:E2:BD:A5:3D:B9:41:BC:3D:20:47:B1:C9:DA:EF:B0:6D:30:DA:F5:EC
+
+a=group:BUNDLE 0
+
+a=ice-options:trickle
+
+a=msid-semantic:WMS *
+
+m=audio 54644 UDP/TLS/RTP/SAVPF 109 9 0 8 101
+
+c=IN IP4 103.81.118.114
+
+a=candidate:0 1 UDP 2122252543 172.24.0.65 54644 typ host
+
+a=candidate:2 1 UDP 2121793791 172.27.0.1 45492 typ host
+
+a=candidate:4 1 UDP 2121728255 172.22.0.1 52488 typ host
+
+a=candidate:6 1 UDP 2121597183 172.21.0.1 48756 typ host
+
+a=candidate:8 1 UDP 2121531647 172.17.0.1 40166 typ host
+
+a=candidate:10 1 UDP 2121990399 172.23.0.1 37744 typ host
+
+a=candidate:12 1 UDP 2121924863 172.25.0.1 56931 typ host
+
+a=candidate:14 1 UDP 2121859327 172.26.0.1 52597 typ host
+
+a=candidate:16 1 UDP 2121662719 172.28.0.1 54766 typ host
+
+a=candidate:18 1 UDP 2122187007 172.18.0.1 58277 typ host
+
+a=candidate:20 1 UDP 2122121471 172.20.0.1 37690 typ host
+
+a=candidate:22 1 UDP 2122055935 172.19.0.1 43453 typ host
+
+a=candidate:24 1 TCP 2105524479 172.24.0.65 9 typ host tcptype active
+
+a=candidate:25 1 TCP 2105065727 172.27.0.1 9 typ host tcptype active
+
+a=candidate:26 1 TCP 2105000191 172.22.0.1 9 typ host tcptype active
+
+a=candidate:27 1 TCP 2104869119 172.21.0.1 9 typ host tcptype active
+
+a=candidate:28 1 TCP 2104803583 172.17.0.1 9 typ host tcptype active
+
+a=candidate:29 1 TCP 2105262335 172.23.0.1 9 typ host tcptype active
+
+a=candidate:30 1 TCP 2105196799 172.25.0.1 9 typ host tcptype active
+
+a=candidate:31 1 TCP 2105131263 172.26.0.1 9 typ host tcptype active
+
+a=candidate:32 1 TCP 2104934655 172.28.0.1 9 typ host tcptype active
+
+a=candidate:33 1 TCP 2105458943 172.18.0.1 9 typ host tcptype active
+
+a=candidate:34 1 TCP 2105393407 172.20.0.1 9 typ host tcptype active
+
+a=candidate:35 1 TCP 2105327871 172.19.0.1 9 typ host tcptype active
+
+a=candidate:0 2 UDP 2122252542 172.24.0.65 48669 typ host
+
+a=candidate:2 2 UDP 2121793790 172.27.0.1 54378 typ host
+
+a=candidate:4 2 UDP 2121728254 172.22.0.1 38740 typ host
+
+a=candidate:6 2 UDP 2121597182 172.21.0.1 43238 typ host
+
+a=candidate:8 2 UDP 2121531646 172.17.0.1 59710 typ host
+
+a=candidate:10 2 UDP 2121990398 172.23.0.1 58479 typ host
+
+a=candidate:12 2 UDP 2121924862 172.25.0.1 37258 typ host
+
+a=candidate:14 2 UDP 2121859326 172.26.0.1 38836 typ host
+
+a=candidate:16 2 UDP 2121662718 172.28.0.1 37548 typ host
+
+a=candidate:18 2 UDP 2122187006 172.18.0.1 59755 typ host
+
+a=candidate:20 2 UDP 2122121470 172.20.0.1 52119 typ host
+
+a=candidate:22 2 UDP 2122055934 172.19.0.1 39793 typ host
+
+a=candidate:24 2 TCP 2105524478 172.24.0.65 9 typ host tcptype active
+
+a=candidate:25 2 TCP 2105065726 172.27.0.1 9 typ host tcptype active
+
+a=candidate:26 2 TCP 2105000190 172.22.0.1 9 typ host tcptype active
+
+a=candidate:27 2 TCP 2104869118 172.21.0.1 9 typ host tcptype active
+
+a=candidate:28 2 TCP 2104803582 172.17.0.1 9 typ host tcptype active
+
+a=candidate:29 2 TCP 2105262334 172.23.0.1 9 typ host tcptype active
+
+a=candidate:30 2 TCP 2105196798 172.25.0.1 9 typ host tcptype active
+
+a=candidate:31 2 TCP 2105131262 172.26.0.1 9 typ host tcptype active
+
+a=candidate:32 2 TCP 2104934654 172.28.0.1 9 typ host tcptype active
+
+a=candidate:33 2 TCP 2105458942 172.18.0.1 9 typ host tcptype active
+
+a=candidate:34 2 TCP 2105393406 172.20.0.1 9 typ host tcptype active
+
+a=candidate:35 2 TCP 2105327870 172.19.0.1 9 typ host tcptype active
+
+a=candidate:1 1 UDP 1686052863 103.81.118.114 54644 typ srflx raddr 172.24.0.65 rport 54644
+
+a=candidate:3 1 UDP 1685594111 103.81.118.114 45492 typ srflx raddr 172.27.0.1 rport 45492
+
+a=candidate:5 1 UDP 1685528575 103.81.118.114 52488 typ srflx raddr 172.22.0.1 rport 52488
+
+a=candidate:7 1 UDP 1685397503 103.81.118.114 48756 typ srflx raddr 172.21.0.1 rport 48756
+
+a=candidate:9 1 UDP 1685331967 103.81.118.114 40166 typ srflx raddr 172.17.0.1 rport 40166
+
+a=candidate:11 1 UDP 1685790719 103.81.118.114 37744 typ srflx raddr 172.23.0.1 rport 37744
+
+a=candidate:13 1 UDP 1685725183 103.81.118.114 56931 typ srflx raddr 172.25.0.1 rport 56931
+
+a=candidate:15 1 UDP 1685659647 103.81.118.114 52597 typ srflx raddr 172.26.0.1 rport 52597
+
+a=candidate:17 1 UDP 1685463039 103.81.118.114 54766 typ srflx raddr 172.28.0.1 rport 54766
+
+a=candidate:19 1 UDP 1685987327 103.81.118.114 58277 typ srflx raddr 172.18.0.1 rport 58277
+
+a=candidate:21 1 UDP 1685921791 103.81.118.114 37690 typ srflx raddr 172.20.0.1 rport 37690
+
+a=candidate:1 2 UDP 1686052862 103.81.118.114 48669 typ srflx raddr 172.24.0.65 rport 48669
+
+a=candidate:23 1 UDP 1685856255 103.81.118.114 43453 typ srflx raddr 172.19.0.1 rport 43453
+
+a=candidate:5 2 UDP 1685528574 103.81.118.114 38740 typ srflx raddr 172.22.0.1 rport 38740
+
+a=candidate:3 2 UDP 1685594110 103.81.118.114 54378 typ srflx raddr 172.27.0.1 rport 54378
+
+a=candidate:7 2 UDP 1685397502 103.81.118.114 43238 typ srflx raddr 172.21.0.1 rport 43238
+
+a=candidate:9 2 UDP 1685331966 103.81.118.114 59710 typ srflx raddr 172.17.0.1 rport 59710
+
+a=candidate:15 2 UDP 1685659646 103.81.118.114 38836 typ srflx raddr 172.26.0.1 rport 38836
+
+a=candidate:13 2 UDP 1685725182 103.81.118.114 37258 typ srflx raddr 172.25.0.1 rport 37258
+
+a=candidate:11 2 UDP 1685790718 103.81.118.114 58479 typ srflx raddr 172.23.0.1 rport 58479
+
+a=candidate:17 2 UDP 1685463038 103.81.118.114 37548 typ srflx raddr 172.28.0.1 rport 37548
+
+a=candidate:21 2 UDP 1685921790 103.81.118.114 52119 typ srflx raddr 172.20.0.1 rport 52119
+
+a=candidate:19 2 UDP 1685987326 103.81.118.114 59755 typ srflx raddr 172.18.0.1 rport 59755
+
+a=candidate:23 2 UDP 1685856254 103.81.118.114 39793 typ srflx raddr 172.19.0.1 rport 39793
+
+a=sendrecv
+
+a=end-of-candidates
+
+a=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+
+a=extmap:2/recvonly urn:ietf:params:rtp-hdrext:csrc-audio-level
+
+a=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid
+
+a=extmap-allow-mixed
+
+a=fmtp:109 maxplaybackrate=48000;stereo=1;useinbandfec=1
+
+a=fmtp:101 0-15
+
+a=ice-pwd:9de2b456f8b4731c35d7a9b18046f978
+
+a=ice-ufrag:b363942d
+
+a=mid:0
+
+a=msid:{4e61a328-ac1c-4aff-9211-12df989a12be} {93586a58-b14f-401f-9ccb-77e3f27aef68}
+
+a=rtcp:48669 IN IP4 103.81.118.114
+
+a=rtcp-mux
+
+a=rtpmap:109 opus/48000/2
+
+a=rtpmap:9 G722/8000/1
+
+a=rtpmap:0 PCMU/8000
+
+a=rtpmap:8 PCMA/8000
+
+a=rtpmap:101 telephone-event/8000
+
+a=setup:actpass
+
+a=ssrc:2929308249 cname:{94dba84c-2f35-4000-a908-9e4f63e1c7a7}
+
+
+sip-0.21.2.js:9591:25
+Successfully sent INVITE .... sipMain.js:142:29
+Fri Dec 05 2025 11:01:24 GMT+0530 (India Standard Time) | sip.Transport | Received WebSocket text message:
+
+SIP/2.0 100 Giving it a try
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;received=172.31.7.125;rport=53330;branch=z9hG4bK7284702
+
+To: <sip:2004@tenant1.teleaon.ai>
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=gv6a4um2ah
+
+Call-ID: fl5bbep818e9527m4ffu
+
+CSeq: 1 INVITE
+
+Server: OpenSIPS (3.4.2 (x86_64/linux))
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:24 GMT+0530 (India Standard Time) | sip.Inviter | Inviter.onTrying sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:26 GMT+0530 (India Standard Time) | sip.Transport | Received WebSocket text message:
+
+SIP/2.0 483 Too Many Hops
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;rport=53330;received=172.31.7.125;branch=z9hG4bK7284702
+
+To: <sip:2004@tenant1.teleaon.ai>;tag=a741.9183d1d9dfd2b5e0821dd469f31c0410
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=gv6a4um2ah
+
+Call-ID: fl5bbep818e9527m4ffu
+
+CSeq: 1 INVITE
+
+Server: OpenSIPS (3.4.2 (x86_64/linux))
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:26 GMT+0530 (India Standard Time) | sip.Transport | Sending WebSocket message:
+
+ACK sip:2004@tenant1.teleaon.ai SIP/2.0
+
+Via: SIP/2.0/WSS bgp1h768jscf.invalid;branch=z9hG4bK7284702
+
+To: <sip:2004@tenant1.teleaon.ai>;tag=a741.9183d1d9dfd2b5e0821dd469f31c0410
+
+From: "extesnion 4" <sip:1004@tenant1.teleaon.ai>;tag=gv6a4um2ah
+
+Call-ID: fl5bbep818e9527m4ffu
+
+CSeq: 1 ACK
+
+Max-Forwards: 70
+
+Content-Length: 0
+
+
+
+
+sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:26 GMT+0530 (India Standard Time) | sip.Inviter | Inviter.onReject sip-0.21.2.js:9591:25
+Fri Dec 05 2025 11:01:26 GMT+0530 (India Standard Time) | sip.Inviter | Session fl5bbep818e9527m4ffugv6a4um2ah transitioned to state Terminated sip-0.21.2.js:9591:25
+ringTonePlay  states are - State: Terminated sipMain.js:169:17
+UnMuting the call sipMain.js:67:17
+Audio track unmuted sipMain.js:75:21
+UnMuting the call sipMain.js:67:17
+Audio track unmuted sipMain.js:75:21
+Fri Dec 05 2025 11:01:28 GMT+0530 (India Standard Time) | sip.Inviter | Session fl5bbep818e9527m4ffugv6a4um2ah in state Terminated is being disposed sip-0.21.2.js:9591:25
+
+​---------------------------------------------------------------------------------------------------------------
+​------------------------------------------------------OpenSIPS logs-----------------------------------------------
+
+docker logs opensips-megh --tail 100
+Dec  5 05:50:54 [15] DBG:core:receive_msg: After parse_msg...
+Dec  5 05:50:54 [15] DBG:core:receive_msg: preparing to run routing scripts...
+Dec  5 05:50:54 [15] DBG:core:parse_headers: flags=78
+Dec  5 05:50:54 [15] DBG:tm:t_lookup_request: start searching: hash=12677, isACK=0
+Dec  5 05:50:54 [15] DBG:tm:matching_3261: RFC3261 transaction matching failed
+Dec  5 05:50:54 [15] DBG:tm:t_lookup_request: no transaction found
+Dec  5 05:50:54 [15] DBG:maxfwd:is_maxfwd_present: value = 70 
+Dec  5 05:50:54 [15] DBG:core:comp_scriptvar: str 20: 13.200.87.192
+Dec  5 05:50:54 [15] DBG:core:MD5StringArray: MD5 calculated: 19ed436536965bf16e9e19ebb08ae0b7
+Dec  5 05:50:54 [15] DBG:core:parse_headers: flags=ffffffffffffffff
+Dec  5 05:50:54 [15] DBG:core:destroy_avp_list: destroying list (nil)
+Dec  5 05:50:54 [15] DBG:core:receive_msg: cleaning up
+Dec  5 05:50:56 [30] DBG:uac_registrant:timer_check: checking ... [1764913856] on htable[1]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record: checking uac=[0x7f10be098b80] state=[4][REGISTER_TIMEOUT_STATE] expires=[3600] last_register_sent=[1764913796] registration_timeout=[1764917366] auth_user[0x7f10be098d88][4]->[test] auth_password=[0x7f10be098d8c][9]->[Admin@123] sock=[0x7f10bfa1d190] clustering=[/0] enabled=[yes]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record:     RURI=[0x7f10be098d78][16]->[sip:1.2.3.4:5060]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record:       To=[0x7f10be098d68][16]->[sip:test@1.2.3.4]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record:     From=[0x7f10be098d68][16]->[sip:test@1.2.3.4] tag=[0x7f10be098d63][5]->[6fb03]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record:  Call-Id=[0x7f10be098d48][27]->[6e1eaade57e357bf7c885a0a32a]
+Dec  5 05:50:56 [30] DBG:uac_registrant:reg_print_record:  Contact=[0x7f10be098d95][23]->[sip:95.217.181.235:5060] [(nil)][0]->[]
+Dec  5 05:50:56 [30] DBG:core:MD5StringArray: MD5 calculated: ef6b08fee4193c564ffbde660fc0c2c5
+Dec  5 05:50:56 [30] DBG:uac_registrant:send_register: extra_hdrs=[0x7f10bc91c7a0][49]->[Contact: <sip:95.217.181.235:5060>;expires=3600
+]
+Dec  5 05:50:56 [30] DBG:tm:t_uac: next_hop=<sip:1.2.3.4:5060>
+Dec  5 05:50:56 [30] DBG:core:mk_proxy: doing DNS lookup...
+Dec  5 05:50:56 [30] DBG:tm:t_uac: sending socket is 172.31.7.125 
+Dec  5 05:50:56 [30] DBG:tm:print_request_uri: sip:1.2.3.4:5060
+Dec  5 05:50:56 [30] DBG:tm:set_timer: relative timeout is 500000
+Dec  5 05:50:56 [30] DBG:tm:insert_timer_unsafe: [4]: 0x7f10be0d5678 (53220700000)
+Dec  5 05:50:56 [30] DBG:tm:insert_timer_unsafe: [0]: 0x7f10be0d56a8 (53250)
+Dec  5 05:50:56 [30] DBG:uac_registrant:send_register: result=[1]
+Dec  5 05:50:56 [27] DBG:tm:utimer_routine: timer routine:4,tl=0x7f10be0d5678 next=(nil), timeout=53220700000
+Dec  5 05:50:56 [27] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:50:56 [27] DBG:tm:set_timer: relative timeout is 1000000
+Dec  5 05:50:56 [27] DBG:tm:insert_timer_unsafe: [5]: 0x7f10be0d5678 (53221700000)
+Dec  5 05:50:56 [27] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:50:57 [30] DBG:tm:utimer_routine: timer routine:5,tl=0x7f10be0d5678 next=(nil), timeout=53221700000
+Dec  5 05:50:57 [30] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:50:57 [30] DBG:tm:set_timer: relative timeout is 2000000
+Dec  5 05:50:57 [30] DBG:tm:insert_timer_unsafe: [6]: 0x7f10be0d5678 (53223700000)
+Dec  5 05:50:57 [30] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:50:59 [30] DBG:tm:utimer_routine: timer routine:6,tl=0x7f10be0d5678 next=(nil), timeout=53223700000
+Dec  5 05:50:59 [30] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:50:59 [30] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:50:59 [30] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53227700000)
+Dec  5 05:50:59 [30] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:03 [24] DBG:tm:utimer_routine: timer routine:7,tl=0x7f10be0d5678 next=(nil), timeout=53227700000
+Dec  5 05:51:03 [24] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:51:03 [24] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:51:03 [24] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53231700000)
+Dec  5 05:51:03 [24] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:07 [29] DBG:tm:utimer_routine: timer routine:7,tl=0x7f10be0d5678 next=(nil), timeout=53231700000
+Dec  5 05:51:07 [29] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:51:07 [29] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:51:07 [29] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53235700000)
+Dec  5 05:51:07 [29] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:11 [26] DBG:tm:utimer_routine: timer routine:7,tl=0x7f10be0d5678 next=(nil), timeout=53235700000
+Dec  5 05:51:11 [26] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:51:11 [26] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:51:11 [26] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53239700000)
+Dec  5 05:51:11 [26] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:15 [28] DBG:tm:utimer_routine: timer routine:7,tl=0x7f10be0d5678 next=(nil), timeout=53239700000
+Dec  5 05:51:15 [28] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:51:15 [28] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:51:15 [28] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53243700000)
+Dec  5 05:51:15 [28] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:19 [27] DBG:tm:utimer_routine: timer routine:7,tl=0x7f10be0d5678 next=(nil), timeout=53243700000
+Dec  5 05:51:19 [27] DBG:tm:retransmission_handler: retransmission_handler : request resending (t=0x7f10be0d5458, REGISTER  ... )
+Dec  5 05:51:19 [27] DBG:tm:set_timer: relative timeout is 4000000
+Dec  5 05:51:19 [27] DBG:tm:insert_timer_unsafe: [7]: 0x7f10be0d5678 (53247700000)
+Dec  5 05:51:19 [27] DBG:tm:retransmission_handler: retransmission_handler : done
+Dec  5 05:51:20 [17] DBG:core:parse_msg: SIP Request:
+Dec  5 05:51:20 [17] DBG:core:parse_msg:  method:  <OPTIONS>
+Dec  5 05:51:20 [17] DBG:core:parse_msg:  uri:     <sip:1004@13.200.87.192:5060;ctid=3784642168108969693>
+Dec  5 05:51:20 [17] DBG:core:parse_msg:  version: <SIP/2.0>
+Dec  5 05:51:20 [17] DBG:core:parse_headers: flags=ffffffffffffffff
+Dec  5 05:51:20 [17] DBG:core:parse_via_param: found param type 235, <rport> = <n/a>; state=6
+Dec  5 05:51:20 [17] DBG:core:parse_via_param: found param type 232, <branch> = <z9hG4bK2782Z0e4Zy4XN>; state=16
+Dec  5 05:51:20 [17] DBG:core:parse_via: end of header reached, state=5
+Dec  5 05:51:20 [17] DBG:core:parse_headers: via found, flags=ffffffffffffffff
+Dec  5 05:51:20 [17] DBG:core:parse_headers: this is the first via
+Dec  5 05:51:20 [17] DBG:core:_parse_to: end of header reached, state=10
+Dec  5 05:51:20 [17] DBG:core:_parse_to: display={}, ruri={sip:1004@tenant1.teleaon.ai}
+Dec  5 05:51:20 [17] DBG:core:get_hdr_field: <To> [31]; uri=[sip:1004@tenant1.teleaon.ai] 
+Dec  5 05:51:20 [17] DBG:core:get_hdr_field: to body [<sip:1004@tenant1.teleaon.ai>
+]
+Dec  5 05:51:20 [17] DBG:core:get_hdr_field: cseq <CSeq>: <107902369> <OPTIONS>
+Dec  5 05:51:20 [17] DBG:core:get_hdr_field: content_length=0
+Dec  5 05:51:20 [17] DBG:core:get_hdr_field: found end of header
+Dec  5 05:51:20 [17] DBG:core:receive_msg: After parse_msg...
+Dec  5 05:51:20 [17] DBG:core:receive_msg: preparing to run routing scripts...
+Dec  5 05:51:20 [17] DBG:core:parse_headers: flags=78
+Dec  5 05:51:20 [17] DBG:tm:t_lookup_request: start searching: hash=57779, isACK=0
+Dec  5 05:51:20 [17] DBG:tm:matching_3261: RFC3261 transaction matching failed
+Dec  5 05:51:20 [17] DBG:tm:t_lookup_request: no transaction found
+Dec  5 05:51:20 [17] DBG:maxfwd:is_maxfwd_present: value = 70 
+Dec  5 05:51:20 [17] DBG:core:comp_scriptvar: str 20: 13.200.87.192
+Dec  5 05:51:20 [17] DBG:core:MD5StringArray: MD5 calculated: 45fd444ad8c3f4a865a7e36b305f5cd5
+Dec  5 05:51:20 [17] DBG:core:parse_headers: flags=ffffffffffffffff
+Dec  5 05:51:20 [17] DBG:core:destroy_avp_list: destroying list (nil)
+Dec  5 05:51:20 [17] DBG:core:receive_msg: cleaning up
+
+​-----------------------------------------------------------------------------------------------------------------
+​-----------------------------------------------------FreeSwtich Logs--------------------------------------------------
+
+2025-12-05 05:22:08.047906 100.00% [NOTICE] switch_utils.c:665 Adding 192.168.0.0/16 (deny) [] to list wan_v4.auto
+2025-12-05 05:22:08.047907 100.00% [NOTICE] switch_utils.c:665 Adding 169.254.0.0/16 (deny) [] to list wan_v4.auto
+2025-12-05 05:22:08.047909 100.00% [NOTICE] switch_utils.c:665 Adding 100.64.0.0/10 (deny) [] to list wan_v4.auto
+2025-12-05 05:22:08.047911 100.00% [NOTICE] switch_utils.c:665 Adding ::/0 (deny) [] to list wan_v4.auto
+2025-12-05 05:22:08.047913 100.00% [NOTICE] switch_core.c:1530 Created ip list any_v6.auto default (allow)
+2025-12-05 05:22:08.047915 100.00% [NOTICE] switch_utils.c:665 Adding 0.0.0.0/0 (deny) [] to list any_v6.auto
+2025-12-05 05:22:08.047917 100.00% [NOTICE] switch_core.c:1537 Created ip list any_v4.auto default (allow)
+2025-12-05 05:22:08.047919 100.00% [NOTICE] switch_utils.c:665 Adding ::/0 (deny) [] to list any_v4.auto
+2025-12-05 05:22:08.047920 100.00% [NOTICE] switch_core.c:1544 Created ip list nat.auto default (deny)
+2025-12-05 05:22:08.047923 100.00% [NOTICE] switch_core.c:1546 Adding 172.31.7.125/255.255.240.0 (deny) to list nat.auto
+2025-12-05 05:22:08.047925 100.00% [NOTICE] switch_utils.c:665 Adding 10.0.0.0/8 (allow) [] to list nat.auto
+2025-12-05 05:22:08.047927 100.00% [NOTICE] switch_utils.c:665 Adding 172.16.0.0/12 (allow) [] to list nat.auto
+2025-12-05 05:22:08.047929 100.00% [NOTICE] switch_utils.c:665 Adding 192.168.0.0/16 (allow) [] to list nat.auto
+2025-12-05 05:22:08.047931 100.00% [NOTICE] switch_utils.c:665 Adding 100.64.0.0/10 (allow) [] to list nat.auto
+2025-12-05 05:22:08.047934 100.00% [NOTICE] switch_core.c:1556 Created ip list loopback.auto default (deny)
+2025-12-05 05:22:08.047936 100.00% [NOTICE] switch_utils.c:665 Adding 127.0.0.0/8 (allow) [] to list loopback.auto
+2025-12-05 05:22:08.047938 100.00% [NOTICE] switch_utils.c:665 Adding ::1/128 (allow) [] to list loopback.auto
+2025-12-05 05:22:08.047940 100.00% [NOTICE] switch_core.c:1563 Created ip list localnet.auto default (deny)
+2025-12-05 05:22:08.047943 100.00% [NOTICE] switch_core.c:1566 Adding 172.31.7.125/255.255.240.0 (allow) to list localnet.auto
+2025-12-05 05:22:08.053965 100.00% [CONSOLE] switch_core.c:1593 Created ip list calltech_acl default (deny)
+2025-12-05 05:22:08.053990 100.00% [NOTICE] switch_utils.c:665 Adding 172.31.7.125/32 (allow) [] to list calltech_acl
+2025-12-05 05:22:08.053994 100.00% [NOTICE] switch_utils.c:665 Adding 172.31.7.125/32 (allow) [] to list calltech_acl
+2025-12-05 05:22:08.053998 100.00% [NOTICE] switch_utils.c:665 Adding 192.168.1.10/32 (allow) [] to list calltech_acl
+2025-12-05 05:22:08.054001 100.00% [CONSOLE] switch_core.c:1593 Created ip list loopback.auto default (allow)
+2025-12-05 05:22:08.054003 100.00% [NOTICE] switch_utils.c:665 Adding 172.31.7.125/32 (allow) [] to list loopback.auto
+2025-12-05 05:22:08.054006 100.00% [NOTICE] switch_utils.c:665 Adding 172.31.7.125/32 (allow) [] to list loopback.auto
+2025-12-05 05:22:08.054008 100.00% [NOTICE] switch_utils.c:665 Adding 192.168.1.10/32 (allow) [] to list loopback.auto
+2025-12-05 05:22:08.055082 100.00% [CONSOLE] switch_core.c:2494 
+.=============================================================.
+|   _____              ______        _____ _____ ____ _   _   |
+|  |  ___| __ ___  ___/ ___\ \      / /_ _|_   _/ ___| | | |  |
+|  | |_ | '__/ _ \/ _ \___ \\ \ /\ / / | |  | || |   | |_| |  |
+|  |  _|| | |  __/  __/___) |\ V  V /  | |  | || |___|  _  |  |
+|  |_|  |_|  \___|\___|____/  \_/\_/  |___| |_| \____|_| |_|  |
+|                                                             |
+.=============================================================.
+|   Anthony Minessale II, Michael Jerris, Brian West, Others  |
+|   FreeSWITCH (http://www.freeswitch.org)                    |
+|   Paypal Donations Appreciated: paypal@freeswitch.org       |
+|   Brought to you by ClueCon http://www.cluecon.com/         |
+.=============================================================.
+
+.=======================================================================================================.
+|       _                            _    ____ _             ____                                       |
+|      / \   _ __  _ __  _   _  __ _| |  / ___| |_   _  ___ / ___|___  _ __                             |
+|     / _ \ | '_ \| '_ \| | | |/ _` | | | |   | | | | |/ _ \ |   / _ \| '_ \                            |
+|    / ___ \| | | | | | | |_| | (_| | | | |___| | |_| |  __/ |__| (_) | | | |                           |
+|   /_/   \_\_| |_|_| |_|\__,_|\__,_|_|  \____|_|\__,_|\___|\____\___/|_| |_|                           |
+|                                                                                                       |
+|    ____ _____ ____    ____             __                                                             |
+|   |  _ \_   _/ ___|  / ___|___  _ __  / _| ___ _ __ ___ _ __   ___ ___                                |
+|   | |_) || || |     | |   / _ \| '_ \| |_ / _ \ '__/ _ \ '_ \ / __/ _ \                               |
+|   |  _ < | || |___  | |__| (_) | | | |  _|  __/ | |  __/ | | | (_|  __/                               |
+|   |_| \_\|_| \____|  \____\___/|_| |_|_|  \___|_|  \___|_| |_|\___\___|                               |
+|                                                                                                       |
+|     ____ _             ____                                                                           |
+|    / ___| |_   _  ___ / ___|___  _ __         ___ ___  _ __ ___                                       |
+|   | |   | | | | |/ _ \ |   / _ \| '_ \       / __/ _ \| '_ ` _ \                                      |
+|   | |___| | |_| |  __/ |__| (_) | | | |  _  | (_| (_) | | | | | |                                     |
+|    \____|_|\__,_|\___|\____\___/|_| |_| (_)  \___\___/|_| |_| |_|                                     |
+|                                                                                                       |
+.=======================================================================================================.
+
+
+2025-12-05 05:22:08.055102 100.00% [INFO] switch_core.c:2503 
+FreeSWITCH Version 1.10.10-release~64bit (-release 64bit)
+
+FreeSWITCH Started
+Max Sessions [10000]
+Session Rate [150]
+SQL [Enabled]
+2025-12-05 05:22:08.056404 100.00% [INFO] switch_cpp.cpp:1465 LOGS BY EcoUC-LUA. STARTUP HOOK TRIGGERED.
+2025-12-05 05:22:08.056426 100.00% [INFO] switch_cpp.cpp:1465 LOGS BY EcoUC-LUA. STARTUP Event freeswitch hostname : freeswitch-3
+2025-12-05 05:22:08.056429 100.00% [INFO] switch_cpp.cpp:1465 LOGS BY EcoUC-LUA. Resetting cc_count in mongoDB.
+2025-12-05 05:22:08.057651 100.00% [CONSOLE] switch_core.c:2520 Startup command [reset_call_path RESET_CP] executed. Output:
+INVALID COMMAND!
+
+2025-12-05 05:22:08.059066 100.00% [WARNING] switch_console.c:1056 We've become an orphan, no more console for us.
+2025-12-05 05:22:08.267890 100.00% [WARNING] sofia_reg.c:1842 SIP auth challenge (REGISTER) on sofia profile 'register' for [1004@tenant1.teleaon.ai] from ip 172.31.7.125
+2025-12-05 05:22:08.327880 100.00% [CONSOLE] sofia_presence.c:1621 Event Thread Started
+2025-12-05 05:22:08.827875 100.00% [CONSOLE] mod_voicemail.c:4068 Event Thread Started
+2025-12-05 05:22:39.807892 97.20% [WARNING] sofia_reg.c:520 sp_Test_trunk Failed Registration [408], setting retry to 30 seconds.
+2025-12-05 05:23:02.267872 96.13% [WARNING] sofia_reg.c:1842 SIP auth challenge (REGISTER) on sofia profile 'register' for [1004@tenant1.teleaon.ai] from ip 172.31.7.125
+2025-12-05 05:23:07.007879 88.33% [WARNING] sofia.c:6472 Ping succeeded a69d6b20-d364-4357-8e5a-00ebe99db4d2_Malaysian with code 200 - count 1/1/1, state UP
+2025-12-05 05:23:07.827871 87.83% [WARNING] sofia_reg.c:1842 SIP auth challenge (REGISTER) on sofia profile 'register' for [1004@tenant1.teleaon.ai] from ip 172.31.7.125
+2025-12-05 05:23:10.967877 87.33% [NOTICE] sofia_reg.c:463 Registering sp_Test_trunk
+2025-12-05 05:23:43.127895 97.33% [WARNING] sofia_reg.c:520 sp_Test_trunk Failed Registration [408], setting retry to 60 seconds.
+2025-12-05 05:23:56.607875 97.43% [WARNING] sofia_reg.c:1842 SIP auth challenge (REGISTER) on sofia profile 'register' for [1004@tenant1.teleaon.ai] from ip 172.31.7.125
+2025-12-05 05:24:44.467880 97.43% [NOTICE] sofia_reg.c:463 Registering sp_Test_trunk
+2025-12-05 05:25:16.627891 85.03% [WARNING] sofia_reg.c:520 sp_Test_trunk Failed Registration [408], setting retry to 90 seconds.
+2025-12-05 05:26:04.647878 91.03% [NOTICE] switch_channel.c:1142 New Channel sofia/register/7000@13.200.87.192 [375f51b5-a382-4c4b-a7ed-067299d4e8f4]
+2025-12-05 05:26:04.647878 91.03% [INFO] sofia.c:10459 sofia/register/7000@13.200.87.192 receiving invite from 172.31.7.125:5060 version: 1.10.10 -release 64bit call-id: 1541100650-1508682777-1821070019
+2025-12-05 05:26:04.647878 91.03% [WARNING] sofia_reg.c:1842 SIP auth challenge (INVITE) on sofia profile 'register' for [70015108929741@13.200.87.192] from ip 172.31.7.125
+2025-12-05 05:26:04.967874 91.03% [INFO] sofia.c:10459 sofia/register/7000@13.200.87.192 receiving invite from 172.31.7.125:5060 version: 1.10.10 -release 64bit call-id: 1541100650-1508682777-1821070019
+2025-12-05 05:26:04.987877 91.03% [WARNING] sofia_reg.c:3210 Can't find user [7000@13.200.87.192] from 172.31.7.125
+You must define a domain called '13.200.87.192' in your directory and add a user with the id="7000" attribute
+and you must configure your device to use the proper domain in its authentication credentials.
+2025-12-05 05:26:04.987877 91.03% [WARNING] sofia_reg.c:1787 SIP auth failure (INVITE) on sofia profile 'register' for [70015108929741@13.200.87.192] from ip 172.31.7.125
+2025-12-05 05:26:04.987877 91.03% [NOTICE] sofia.c:2417 Hangup sofia/register/7000@13.200.87.192 [CS_NEW] [CALL_REJECTED]
+2025-12-05 05:26:04.987877 91.03% [INFO] switch_cpp.cpp:1465 LOGS BY EcoUC-LUA. HANGUP HOOK TRIGGERED.
+
+
+​---------------------------------------------------------------------------------------------------------------
+​-----------------------------------------------------  Logs from the server--------------------------------------------------
+-----Sofia Status Logs--------------------------------------------------
+
+docker exec freeswitch3 fs_cli -x "sofia status"
+                     Name	   Type	                                      Data	State
+=================================================================================================
+       tenant1.teleaon.ai	  alias	                                  register	ALIASED
+                 register	profile	           sip:mod_sofia@172.31.7.125:5071	RUNNING (0)
+                 register	profile	           sip:mod_sofia@172.31.7.125:5061	RUNNING (0) (TLS)
+                       ip	profile	           sip:mod_sofia@172.31.7.125:5081	RUNNING (0)
+                       ip	profile	           sip:mod_sofia@172.31.7.125:5061	RUNNING (0) (TLS)
+          ip::example.com	gateway	                   sip:joeuser@example.com	NOREG
+        ip::sp_Test_trunk	gateway	                     sip:test@1.2.3.4:5060	FAIL_WAIT (retry: 25s)
+ip::a69d6b20-d364-4357-8e5a-00ebe99db4d2_Malaysian	gateway	      sip:01548406196@103.251.203.148:5060	REGED
+=================================================================================================
+2 profiles 1 alias
+
+
+
+docker inspect opensips-megh --format='Network: {{range $k, $v := .NetworkSettings.Networks}}{{$k}} {{end}} | Gateway: {{range $k, $v := .NetworkSettings.Networks}}{{$v.Gateway}} {{end}}'
+Network: host  | Gateway:  
+
+
+
+docker inspect freeswitch3 --format='{{.HostConfig.NetworkMode}}'
+host
+
+
+docker ps --filter "name=freeswitch" --format "{{.Names}}"
+freeswitch3
+
+
+docker inspect freeswitch3 --format='NetworkMode: {{.HostConfig.NetworkMode}} | IP: {{range $k, $v := .NetworkSettings.Networks}}{{$v.IPAddress}} {{end}}'
+NetworkMode: host | IP:  
+
+
+docker exec opensips-megh ip route show default
+default via 172.31.0.1 dev ens5 proto dhcp src 172.31.7.125 metric 100 
+
+
+
+docker exec freeswitch3 bash -c "find /usr/local/freeswitch/conf -name '*.xml' -exec grep -l '5071' {} \;"
+/usr/local/freeswitch/conf/dialplan/calltech.xml
+
+
+
+docker exec -it freeswitch3 fs_cli -x "sofia status profile internal reg"
+Invalid Profile!
+
+
+
+docker exec -it freeswitch3 fs_cli -x "sofia status profile external reg"
+Invalid Profile!
+
+
+docker exec -it freeswitch3 fs_cli -x "sofia status"
+                     Name	   Type	                                      Data	State
+=================================================================================================
+       tenant1.teleaon.ai	  alias	                                  register	ALIASED
+                 register	profile	           sip:mod_sofia@172.31.7.125:5071	RUNNING (0)
+                 register	profile	           sip:mod_sofia@172.31.7.125:5061	RUNNING (0) (TLS)
+                       ip	profile	           sip:mod_sofia@172.31.7.125:5081	RUNNING (0)
+                       ip	profile	           sip:mod_sofia@172.31.7.125:5061	RUNNING (0) (TLS)
+          ip::example.com	gateway	                   sip:joeuser@example.com	NOREG
+        ip::sp_Test_trunk	gateway	                     sip:test@1.2.3.4:5060	FAIL_WAIT (retry: 275s)
+ip::a69d6b20-d364-4357-8e5a-00ebe99db4d2_Malaysian	gateway	      sip:01548406196@103.251.203.148:5060	REGED
+=================================================================================================
+2 profiles 1 alias
+
+
+
+
+docker exec -it freeswitch3 fs_cli -x "show registrations"
+reg_user,realm,token,url,expires,network_ip,network_port,network_proto,hostname,metadata
+1004,tenant1.teleaon.ai,4oh6a24o2heicdacj3dj,sofia/register/sip:1004@13.200.87.192:5060;ctid=3784642168108969693,1764915705,172.31.7.125,5060,udp,freeswitch,
+
+1 total.
