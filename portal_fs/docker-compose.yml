@@ -1,11 +1,21 @@
 services:
   freeswitch:
     hostname: freeswitch-3
-    container_name: freeswitch3
-    network_mode: 'host'  # Keep host mode for freeswitch
+    container_name: tlai-freeswitch
     restart: always
     image: dockerregistry.ecosmob.net:5000/ecouc-freeswitch:release.1
     privileged: true
+    networks:
+      - uc-connection
+      - mysqldb
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "5071:5071/udp"
+      - "5071:5071/tcp"
+      - "5081:5081/udp"
+      - "5081:5081/tcp"
+      - "16384-16484:16384-16484/udp"
     ulimits:
       core: -1
     logging:

@@ -4334,3 +4334,31 @@
 [] aaa_server.c +432 [INFO] main: [32mReceived connection on descriptor 226 (host=147.185.132.120, port=62930)[0m
 [] aaa_server.c +437 [ERROR] main: [31mRequest from 147.185.132.120. Rejected by acl[0m
 [] aaa_server.c +538 [INFO] main: [32mClosed connection on descriptor 4[0m
+[] aaa_server.c +314 [DEBUG] main: [33mLog file opened for logging[0m
+[] aaa_server.c +316 [DEBUG] main: [33mI am a Parent.  My pid is:8  my ppid is 1[0m
+[] aaa_server.c +632 [INFO] create_and_bind: [32mROUTING CALL TEST BIND METHOD 8083[0m
+[] aaa_server.c +654 [INFO] create_and_bind: [32msocket function[0m
+[] aaa_server.c +657 [INFO] create_and_bind: [32ms = 0[0m
+[] aaa_server.c +660 [INFO] create_and_bind: [32mListening on port 8083[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:9  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:10  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:11  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:12  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:13  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:14  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:15  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:16  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:17  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +342 [INFO] main: [32m10 child(ren) created[0m
+[] aaa_server.c +337 [DEBUG] main: [33mI am a Child.  My pid is:18  my ppid is 8[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m
+[] aaa_server.c +351 [INFO] main: [32mWaiting for connections ...[0m

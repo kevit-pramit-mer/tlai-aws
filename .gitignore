@@ -41,3 +41,4 @@ mongo/*
 mysql/*
 pma/*
 rabbitmq/*
+portal_fs/freeswitch_files/sounds/*

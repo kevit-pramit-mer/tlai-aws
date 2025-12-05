@@ -1,9 +1,9 @@
 let username = extensionNumber;
 let password = extensionPassword;
 var transportOptions = {
-    server: wssURL + ':' + wssPort,
+    server: 'ws://' + wsHostname + ':' + wssPort,
 };
-const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + domainName);
+const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + sipDomain);
 
 var config = {
     uri: uri,
@@ -61,7 +61,7 @@ function makeBargeignCall(uuid) {
     let callParams = {
         video: false,
         extraHeaders: extraHeaders,
-        target: SIP.UserAgent.makeURI(`sip:*93` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:*93` + '@' + sipDomain)
     }
     callDirection = 'outgoing';
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)
@@ -145,7 +145,7 @@ function makeHangupCall(uuid) {
     let callParams = {
         video: false,
         extraHeaders: extraHeaders,
-        target: SIP.UserAgent.makeURI(`sip:*94` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:*94` + '@' + sipDomain)
     }
     callDirection = 'outgoing';
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)
@@ -202,7 +202,7 @@ function makeListenCall(uuid) {
     let callParams = {
         video: false,
         extraHeaders: extraHeaders,
-        target: SIP.UserAgent.makeURI(`sip:*95` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:*95` + '@' + sipDomain)
     }
     callDirection = 'outgoing';
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)
@@ -241,7 +241,7 @@ function makeWhisperCall(uuid) {
     let callParams = {
         video: false,
         extraHeaders: extraHeaders,
-        target: SIP.UserAgent.makeURI(`sip:*96` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:*96` + '@' + sipDomain)
     }
     callDirection = 'outgoing';
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallbackWhisper, outgoingDelegateCallback)

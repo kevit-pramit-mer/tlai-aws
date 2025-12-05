@@ -14,16 +14,16 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 /**
  * Defines the default dsn for the FS_PDO class
  */
-define('DATABASE_IP', '72.60.40.106');
+define('DATABASE_IP', 'mysql');
 //old-one define('MASTER_DB_DSN', 'mysql:dbname=ucdb;host=mysql);
-define('MASTER_DB_DSN', 'mysql:dbname=ucdb;host=72.60.40.106');
+define('MASTER_DB_DSN', 'mysql:dbname=ucdb;host=mysql');
 define('MASTER_DB_USER', 'root');
 define('MASTER_DB_PASSWORD', 'Gv9Xr2mQpLz7KbYt');
 
 
 
 
-define('RABBITMQ_IP', '72.60.40.106');
+define('RABBITMQ_IP', 'rabbitmq');
 //define('RABBITMQ_IP', 'rabbitmq');
 define('RABBITMQ_PORT', 5672);
 define('RABBITMQ_USERNAME', 'admin');
@@ -34,7 +34,7 @@ define('API_URL', 'https://admin.teleaon.ai:3002/');
 define('API_EMAIL', 'uc.defaultuser@ecosmob.net');
 define('API_PASSWORD', 'R@8w#L2z&Q4v');
 
-define('DEFAULT_DSN', 'mysql:dbname=ucdb;host=72.60.40.106');
+define('DEFAULT_DSN', 'mysql:dbname=ucdb;host=mysql');
 define('DEFAULT_DSN_PASSWORD', 'Gv9Xr2mQpLz7KbYt');
 /** Defines path for audio files */
 define('AUDIO_PATH', '/media/admin/audio-libraries/');
@@ -49,9 +49,9 @@ define('opensip_header', 'Content-Type: text/xml');
 define('COLL_DASHBOARD', 'dashboard.details');
 
 /** mongo url & database name */
-define('MONGO_URL', 'mongodb://JKYTH:UTHhuosjfYehiU@72.60.40.106:27017,72.60.40.106:27018,72.60.40.106:27019/meghtenant');
+define('MONGO_URL', 'mongodb://tlai-mongo1:27017,tlai-mongo2:27017,tlai-mongo3:27017/uctenant?replicaSet=rs0');
 // current status define('MONGO_URL', 'mongodb://JKYTH:UTHhuosjfYehiU@mongo1:27017,mongo2:27017,mongo3:27017/meghtenant');
-define('DATABASE_NAME', 'meghtenant');
+define('DATABASE_NAME', 'uctenant');
 
 // define('MONGO_URL', 'mongodb://uctenant:ecosmob123@127.0.0.1:27017/uctenant');
 // define('DATABASE_NAME', 'uctenant');
@@ -83,7 +83,7 @@ define('COLL_FRAUD', 'call.fraud');
 
 /////////////////ESL connetion////////////////////////
 //define('ESL_HOST', '127.0.0.1');
-define('ESL_HOST', '72.60.40.106');
+define('ESL_HOST', 'localhost');
 define('ESL_PORT', '8021');
 define('ESL_PWD', 'ClueCon');
 ////////////////////////////////////////////////////////

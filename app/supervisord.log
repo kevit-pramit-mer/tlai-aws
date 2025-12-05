@@ -102,3 +102,34 @@
 2025-12-03 11:01:33,106 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2025-12-03 11:01:33,207 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2025-12-03 11:01:33,208 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:33:09,784 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-12-04 13:33:09,792 INFO supervisord started with pid 1
+2025-12-04 13:33:10,809 INFO spawned: 'cron' with pid 7
+2025-12-04 13:33:10,828 INFO spawned: 'nginx' with pid 8
+2025-12-04 13:33:10,839 INFO spawned: 'php-fpm' with pid 9
+2025-12-04 13:33:11,918 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:33:11,918 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:33:11,918 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:40:19,387 WARN received SIGTERM indicating exit request
+2025-12-04 13:40:19,389 INFO waiting for cron, nginx, php-fpm to die
+2025-12-04 13:40:19,411 INFO stopped: php-fpm (exit status 0)
+2025-12-04 13:40:19,479 INFO stopped: nginx (exit status 0)
+2025-12-04 13:40:20,839 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2025-12-04 13:40:20,844 INFO supervisord started with pid 1
+2025-12-04 13:40:21,852 INFO spawned: 'cron' with pid 7
+2025-12-04 13:40:21,863 INFO spawned: 'nginx' with pid 8
+2025-12-04 13:40:21,869 INFO spawned: 'php-fpm' with pid 9
+2025-12-04 13:40:22,942 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:40:22,943 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 13:40:22,944 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-12-04 15:54:53,966 INFO reaped unknown pid 19521 (exit status 1)
+2025-12-04 15:54:53,973 INFO reaped unknown pid 19523 (exit status 0)
+2025-12-04 15:54:53,974 INFO reaped unknown pid 19525 (exit status 0)
+2025-12-04 15:55:00,985 INFO reaped unknown pid 19547 (exit status 0)
+2025-12-04 15:55:00,986 INFO reaped unknown pid 19549 (exit status 0)
+2025-12-04 15:55:06,989 INFO reaped unknown pid 19610 (exit status 0)
+2025-12-04 15:55:06,989 INFO reaped unknown pid 19612 (exit status 0)
+2025-12-04 15:55:12,996 INFO reaped unknown pid 19650 (exit status 0)
+2025-12-04 15:55:12,996 INFO reaped unknown pid 19652 (exit status 0)
+2025-12-04 15:55:14,998 INFO reaped unknown pid 19667 (exit status 0)
+2025-12-04 15:55:14,998 INFO reaped unknown pid 19669 (exit status 0)

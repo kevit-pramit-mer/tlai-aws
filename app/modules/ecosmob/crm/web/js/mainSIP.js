@@ -1,3 +1,4 @@
+// Cache buster: 2025-12-04-19:15 - Fixed SIP domain
 var timer = new Timer();
 var current_uuid = '';
 var currentCallTime;
@@ -28,7 +29,7 @@ let callDirection;
 let username = extensionNumber;
 let password = extensionPassword;
 var transportOptions = {
-    server: wssURL + ':' + wssPort,
+    server: 'ws://' + wsHostname + ':' + wssPort,
 };
 let callID;
 var currentCampaignId;
@@ -39,7 +40,7 @@ let activeQueueId = '';
 let activeCampaignName= '';
 let callUniqueId = '';
 
-const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + domainName);
+const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + sipDomain);
 
 var config = {
     uri: uri,
@@ -496,7 +497,7 @@ function makeCallDialPad() {
             ringfile: "http://localhost/uctenant_master/web/theme/sound/bell_ring2.mp3",
             audioFileContainer: audioContainer
         },
-        target: SIP.UserAgent.makeURI(`sip:${lg_contact_number}` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:${lg_contact_number}` + '@' + sipDomain)
     }
     callDirection = 'outgoing';
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)
@@ -668,7 +669,7 @@ function stopPlayback(aleg_uuid) {
     let callParams = {
         constraints: constraints,
         extraHeaders: extraHeaders,
-        target: SIP.UserAgent.makeURI(`sip:*99` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:*99` + '@' + sipDomain)
     }
     customSIPModule.initiateCall(UserAgent, callParams, stopPlaybackOutgoingSessionCallback, stopPlaybackOutgoingDelegateCallback)
         .then((inviter) => {
@@ -720,7 +721,7 @@ function makeCall() {
             ringfile: "http://localhost/uctenant_master/web/theme/sound/bell_ring2.mp3",
             audioFileContainer: audioContainer
         },
-        target: SIP.UserAgent.makeURI(`sip:${lg_contact_number}` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:${lg_contact_number}` + '@' + sipDomain)
     }
 
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)

@@ -313,7 +313,7 @@
        use different addresses where this variable appears.
        Used by: dingaling.conf.xml
   -->
-  <X-PRE-PROCESS cmd="set" data="bind_server_ip=auto"/>
+  <X-PRE-PROCESS cmd="set" data="bind_server_ip=0.0.0.0"/>
 
   <!-- NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE NOTICE
        

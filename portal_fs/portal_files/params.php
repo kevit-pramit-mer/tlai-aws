@@ -185,7 +185,8 @@ return [
     'RABBITMQ_USER' => 'admin',
     'RABBITMQ_PASSWORD' => 'jhfsdtdhyPyHgRE',
     'BLF_DIGITS_LIMIT' => 10,
-    'WSS_PORT' => "5065",
+    'WSS_PORT' => "5064",
+    'SIP_DOMAIN' => "tenant1.teleaon.ai",
     'BLF_DIGITS_LIMIT' => 10,
     'PHONEBOOK_TRAGOFONE_API_URL' => 'https://s1.tragofone.com:8091/v1.50.4/api/'
 ];

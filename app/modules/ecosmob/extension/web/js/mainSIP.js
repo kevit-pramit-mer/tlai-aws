@@ -1,3 +1,4 @@
+// Cache buster: 2025-12-04-19:15 - Fixed SIP domain to use tenant1.teleaon.ai
 var timer = new Timer();
 var digitCount = 0;
 var count = 0;
@@ -6,7 +7,7 @@ let username = extensionNumber;
 let password = extensionPassword;
 
 var transportOptions = {
-    server: wssURL + ':' + wssPort,
+    server: 'ws://' + wsHostname + ':' + wssPort,
 };
 let audioContainer = document.getElementById("audio-container");
 let localVideo = document.getElementById("localVideo");
@@ -24,7 +25,8 @@ let callID;
 let callDirection;
 let destination_number;
 let notificationReg;
-const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + domainName);
+const uri = SIP.UserAgent.makeURI(`sip:${username}` + "@" + sipDomain);
+console.log("mainSIP.js - Created URI:", uri.toString(), "using sipDomain:", sipDomain);
 //let hasVideo = false;
 let audioCall = true;
 let speedDial = [];
@@ -176,7 +178,7 @@ function initiateAudioCall(destination_number = ''){
         ringParams: {
 
         },
-        target: SIP.UserAgent.makeURI(`sip:${destination_number}` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:${destination_number}` + '@' + sipDomain)
     }
     callDirection = 'outgoing'
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionCallback, outgoingDelegateCallback)
@@ -214,7 +216,7 @@ function initiateVideoCall(destination_number = ''){
         ringParams: {
 
         },
-        target: SIP.UserAgent.makeURI(`sip:${destination_number}` + '@' + domainName)
+        target: SIP.UserAgent.makeURI(`sip:${destination_number}` + '@' + sipDomain)
     }
     callDirection = 'outgoing'
     customSIPModule.initiateCall(UserAgent, callParams, outgoingSessionVideoCallback, outgoingDelegateVideoCallback)

@@ -16,14 +16,18 @@ class DynamicMongoDbConnection extends Connection
     {
         $credentials = Yii::$app->commonHelper->getTenantConfig($_SERVER['HTTP_HOST']);
         if ($credentials) {
-            $mongo_host = $credentials['authParams']['mongo_host'];
+            $mongodb_host = $credentials['authParams']['mongodb_host'];
 
-            $this->dsn = "mongodb://".$mongo_host;
-            $this->options['username'] = $credentials['authParams']['mongo_username'];
-            $this->options['password'] = $credentials['authParams']['mongo_password'];
-            $this->options['authSource'] = $credentials['authParams']['mongo_dbname'];
+            $this->dsn = "mongodb://".$mongodb_host;
+            
+            // Only set authentication if credentials are provided
+            if (!empty($credentials['authParams']['mongodb_username'])) {
+                $this->options['username'] = $credentials['authParams']['mongodb_username'];
+                $this->options['password'] = $credentials['authParams']['mongodb_password'];
+                $this->options['authSource'] = $credentials['authParams']['mongodb_database'];
+            }
 
-            $GLOBALS['mongoDBName'] = $credentials['authParams']['mongo_dbname'];
+            $GLOBALS['mongoDBName'] = $credentials['authParams']['mongodb_database'];
             Yii::$app->session->set('tenantID', $credentials['tenant_id']);
             parent::init();
         } else {

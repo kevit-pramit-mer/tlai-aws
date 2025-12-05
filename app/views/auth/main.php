@@ -47,9 +47,12 @@ $userType = (isset(Yii::$app->user->identity->adm_is_admin) ? Yii::$app->user->i
     var wss_url = "<?=$_SERVER['HTTP_HOST']?>";
     var extensionRegisterURL = "<?=$_SERVER['HTTP_HOST']?>";
     var baseURL = '<?= Yii::$app->homeUrl ?>';
-    var wssURL = "wss://"+"<?=$_SERVER['HTTP_HOST']?>";
+    var wsHostname = "<?=$_SERVER['HTTP_HOST']?>".split(':')[0];
+    var wssURL = "ws://" + wsHostname;
     var wssPort = "<?=Yii::$app->params['WSS_PORT']?>";
     var domainName = "<?=$_SERVER['HTTP_HOST']?>";
+    var sipDomain = "<?=isset(Yii::$app->params['SIP_DOMAIN']) ? Yii::$app->params['SIP_DOMAIN'] : 'tenant1.teleaon.ai'?>";
+    console.log("DEBUG: sipDomain =", sipDomain, "domainName =", domainName);
     var callRingFile = "<?=$protocol?><?=$_SERVER['HTTP_HOST']?>"  + '/theme/sound/bell_ring2.mp3';
     var userType = "<?= $userType ?>";
 </script>
